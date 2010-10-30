@@ -634,3 +634,199 @@ Processing AuthorsController#show (for 127.0.0.1 at 2010-10-30 01:03:33) [GET]
 Rendering template within layouts/authors
 Rendering authors/show
 Completed in 10ms (View: 2, DB: 0) | 200 OK [http://localhost/authors/1]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-10-30 01:08:09) [GET]
+  [4;35;1mAuthor Load (0.6ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/authors]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-30 01:08:26) [GET]
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Completed in 82ms (View: 65, DB: 1) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (1.6ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (35.4ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "rating" decimal, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (10.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (12.3ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (7.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101030073221')[0m
+  [4;36;1mSQL (12.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101030071752')[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('hebelken', '2010-10-30 08:14:25', '2010-10-30 08:14:25')[0m
+  [4;36;1mAuthor Create (0.3ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('timmy', '2010-10-30 08:14:25', '2010-10-30 08:14:25')[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('barny Stinson', '2010-10-30 08:14:25', '2010-10-30 08:14:25')[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(5.0, '2010-10-30 08:14:25', 'yo tina, I''mma let you finish but jeffry has the...', '2010-10-30 08:14:25', 1)[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(1.0, '2010-10-30 08:14:25', 'herp-derp dee deed derp', '2010-10-30 08:14:25', 1)[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(2.0, '2010-10-30 08:14:25', 'this is the name that is mine my post is baller and I look so fine', '2010-10-30 08:14:25', 3)[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-30 01:14:33) [GET]
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 3) [0m
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (21.6ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.9ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "rating" decimal, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (37.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (13.2ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (11.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101030073221')[0m
+  [4;36;1mSQL (9.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101030071752')[0m
+  [4;35;1mAuthor Create (0.4ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('hebelken', '2010-10-30 08:15:11', '2010-10-30 08:15:11')[0m
+  [4;36;1mAuthor Create (0.3ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('timmy', '2010-10-30 08:15:11', '2010-10-30 08:15:11')[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('barny Stinson', '2010-10-30 08:15:11', '2010-10-30 08:15:11')[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-30 01:15:12) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 9ms (View: 1, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-30 01:15:14) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 13ms (View: 1, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-30 01:15:15) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 15ms (View: 1, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-30 01:15:17) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 16ms (View: 1, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-30 01:15:18) [GET]
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 12ms (View: 2, DB: 0) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (15.5ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (19.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "rating" decimal, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (9.9ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (125.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101030073221')[0m
+  [4;36;1mSQL (8.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101030071752')[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('hebelken', '2010-10-30 08:15:47', '2010-10-30 08:15:47')[0m
+  [4;36;1mAuthor Create (3.9ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('timmy', '2010-10-30 08:15:47', '2010-10-30 08:15:47')[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('barny Stinson', '2010-10-30 08:15:47', '2010-10-30 08:15:47')[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(5.0, '2010-10-30 08:15:47', 'yo tina, I''mma let you finish but jeffry has the...', '2010-10-30 08:15:47', 1)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(1.0, '2010-10-30 08:15:47', 'herp-derp dee deed derp', '2010-10-30 08:15:47', 1)[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(2.0, '2010-10-30 08:15:47', 'this is the name that is mine my post is baller and I look so fine', '2010-10-30 08:15:47', 3)[0m
+  [4;36;1mAuthor Create (1.0ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('hebelken', '2010-10-30 08:16:57', '2010-10-30 08:16:57')[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('timmy', '2010-10-30 08:16:57', '2010-10-30 08:16:57')[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('barny Stinson', '2010-10-30 08:16:57', '2010-10-30 08:16:57')[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (28.2ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "rating" decimal, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (16.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (11.3ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (61.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101030073221')[0m
+  [4;36;1mSQL (17.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101030071752')[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('hebelken', '2010-10-30 08:18:57', '2010-10-30 08:18:57')[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('timmy', '2010-10-30 08:18:57', '2010-10-30 08:18:57')[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('barny Stinson', '2010-10-30 08:18:57', '2010-10-30 08:18:57')[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(5.0, '2010-10-30 08:18:57', 'yo tina, I''mma let you finish but jeffry has the...', '2010-10-30 08:18:57', 1)[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(1.0, '2010-10-30 08:18:57', 'herp-derp dee deed derp', '2010-10-30 08:18:57', 1)[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(2.0, '2010-10-30 08:18:57', 'this is the name that is mine my post is baller and I look so fine', '2010-10-30 08:18:57', 3)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(5.0, '2010-10-30 08:18:57', 'this is alebeeb psors dort aohtem lariousemsasdgnm ipsotmsatmm', '2010-10-30 08:18:57', 2)[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-30 01:19:09) [GET]
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 3) [0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 2) [0m
+Completed in 28ms (View: 20, DB: 2) | 200 OK [http://localhost/posts]
