@@ -7,3 +7,5 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 
 authors = Author.create([{ :name => "hebelken"}, { :name => "timmy"}, { :name => "barny Stinson"}])
+
+posts = Post.create([{ :author => authors.first, :rating => 5, :body => "yo tina, I'mma let you finish but jeffry has the..."}])
