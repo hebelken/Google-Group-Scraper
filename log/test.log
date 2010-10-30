@@ -1,0 +1,118 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+
+
+Processing AuthorsController#create (for 0.0.0.0 at 2010-10-30 00:19:21) [POST]
+  Parameters: {"author"=>{}}
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES(NULL, '2010-10-30 07:19:21', '2010-10-30 07:19:21')[0m
+Redirected to http://test.host/authors/980190963
+Completed in 7ms (DB: 1) | 302 Found [http://test.host/authors?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#destroy (for 0.0.0.0 at 2010-10-30 00:19:21) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+  [4;36;1mAuthor Destroy (0.1ms)[0m   [0;1mDELETE FROM "authors" WHERE "id" = 980190962[0m
+Redirected to http://test.host/authors
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/authors/980190962]
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#edit (for 0.0.0.0 at 2010-10-30 00:19:21) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/edit
+Completed in 18ms (View: 17, DB: 1) | 200 OK [http://test.host/authors/980190962/edit]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-10-30 00:19:21) [GET]
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://test.host/authors]
+
+
+Processing AuthorsController#new (for 0.0.0.0 at 2010-10-30 00:19:21) [GET]
+Rendering template within layouts/authors
+Rendering authors/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://test.host/authors/new]
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#show (for 0.0.0.0 at 2010-10-30 00:19:21) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://test.host/authors/980190962]
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#update (for 0.0.0.0 at 2010-10-30 00:19:21) [PUT]
+  Parameters: {"author"=>{}, "id"=>"980190962"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Redirected to http://test.host/authors/980190962
+Completed in 3ms (DB: 0) | 302 Found [http://test.host/authors/980190962?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+
+
+Processing AuthorsController#create (for 0.0.0.0 at 2010-10-30 00:22:10) [POST]
+  Parameters: {"author"=>{}}
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES(NULL, '2010-10-30 07:22:10', '2010-10-30 07:22:10')[0m
+Redirected to http://test.host/authors/980190963
+Completed in 8ms (DB: 1) | 302 Found [http://test.host/authors?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#destroy (for 0.0.0.0 at 2010-10-30 00:22:10) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+  [4;36;1mAuthor Destroy (0.1ms)[0m   [0;1mDELETE FROM "authors" WHERE "id" = 980190962[0m
+Redirected to http://test.host/authors
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/authors/980190962]
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#edit (for 0.0.0.0 at 2010-10-30 00:22:10) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/edit
+Completed in 26ms (View: 25, DB: 1) | 200 OK [http://test.host/authors/980190962/edit]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-10-30 00:22:10) [GET]
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://test.host/authors]
+
+
+Processing AuthorsController#new (for 0.0.0.0 at 2010-10-30 00:22:10) [GET]
+Rendering template within layouts/authors
+Rendering authors/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://test.host/authors/new]
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#show (for 0.0.0.0 at 2010-10-30 00:22:10) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://test.host/authors/980190962]
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#update (for 0.0.0.0 at 2010-10-30 00:22:10) [PUT]
+  Parameters: {"author"=>{}, "id"=>"980190962"}
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Redirected to http://test.host/authors/980190962
+Completed in 3ms (DB: 0) | 302 Found [http://test.host/authors/980190962?]
