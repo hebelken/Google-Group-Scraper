@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  author_id: 1
+  author: jasper
   rating: 9.99
   body: MyText
 
 two:
-  author_id: 1
+  author: jasper
   rating: 9.99
   body: MyText
