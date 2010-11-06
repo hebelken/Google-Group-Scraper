@@ -13,7 +13,7 @@ class AuthorsController < ApplicationController
   # GET /authors/1
   # GET /authors/1.xml
   def show
-    @author = Author.find(params[:id])
+    @author = Author.find_by_name(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

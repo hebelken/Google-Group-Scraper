@@ -10,7 +10,7 @@
 
 <% @authors.each do |author| %>
   <tr>
-    <td><%= link_to h (author.name), author %></td>
+    <td><%= link_to h (author.name), author_path(author.name) %></td>
     <td><%= author.posts.count %></td>
     <td><%= author.average_rating %></td>
     <td><%= author.posts.first.body %></td>
@@ -18,6 +18,4 @@
 <% end %>
 </table>
 
-<br />
 
-<%= link_to 'New author', new_author_path %>

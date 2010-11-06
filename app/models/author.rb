@@ -5,5 +5,6 @@ class Author < ActiveRecord::Base
   def average_rating 
     posts.average('rating')
   end
+
   
 end

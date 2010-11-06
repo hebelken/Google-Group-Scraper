@@ -2601,3 +2601,629 @@ Rendering authors/index
   [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
   [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
 Completed in 81ms (View: 61, DB: 11) | 200 OK [http://localhost/authors]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:59:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) [0m
+Completed in 23ms (View: 8, DB: 1) | 200 OK [http://localhost/authors/1]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:03:46) [GET]
+  [4;36;1mAuthor Load (0.6ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 21ms (View: 13, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing AuthorsController#new (for 127.0.0.1 at 2010-11-06 10:04:10) [GET]
+Rendering template within layouts/authors
+Rendering authors/new
+Completed in 17ms (View: 11, DB: 0) | 200 OK [http://localhost/authors/new]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:04:39) [GET]
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 33ms (View: 20, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:04:39) [GET]
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 27ms (View: 15, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:04:40) [GET]
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 27ms (View: 17, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:08:02) [GET]
+  [4;36;1mAuthor Load (0.8ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 30ms (View: 19, DB: 3) | 200 OK [http://localhost/authors]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:08:08) [GET]
+  Parameters: {"id"=>"hebelken"}
+
+ActiveRecord::RecordNotFound (Couldn't find Author without an ID):
+  app/controllers/authors_controller.rb:17:in `show'
+
+Rendered rescues/_trace (32.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:08:39) [GET]
+  Parameters: {"id"=>"hebelken"}
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" IS NULL) LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #3 of app/views/authors/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @author.name %>
+4: </p>
+5: 
+6: <table>
+
+    app/views/authors/show.html.erb:3
+    app/controllers/authors_controller.rb:19:in `show'
+
+Rendered rescues/_trace (83.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:09:42) [GET]
+  Parameters: {"id"=>"hebelken"}
+  [4;35;1mAuthor Load (0.1ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" IS NULL) LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #3 of app/views/authors/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @author.name %>
+4: </p>
+5: 
+6: <table>
+
+    app/views/authors/show.html.erb:3
+    app/controllers/authors_controller.rb:19:in `show'
+
+Rendered rescues/_trace (52.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-06 10:10:42) [GET]
+
+ActionController::RoutingError (No route matches "/authors/hebelken" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:12:02) [GET]
+  Parameters: {"id"=>"hebelken"}
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" IS NULL) LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #3 of app/views/authors/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @author.name %>
+4: </p>
+5: 
+6: <table>
+
+    app/views/authors/show.html.erb:3
+    app/controllers/authors_controller.rb:19:in `show'
+
+Rendered rescues/_trace (40.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:12:05) [GET]
+  Parameters: {"id"=>"hebelken"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" IS NULL) LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #3 of app/views/authors/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @author.name %>
+4: </p>
+5: 
+6: <table>
+
+    app/views/authors/show.html.erb:3
+    app/controllers/authors_controller.rb:19:in `show'
+
+Rendered rescues/_trace (46.2ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = '--- :name
+') LIMIT 1[0m
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:20:54) [GET]
+  Parameters: {"id"=>"hebelken"}
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Author with ID=hebelken):
+  app/controllers/authors_controller.rb:16:in `show'
+
+Rendered rescues/_trace (38.4ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:20:59) [GET]
+  [4;35;1mAuthor Load (0.9ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+
+ActionView::TemplateError (undefined local variable or method `url' for #<Author:0xb6673fc0>) on line #13 of app/views/authors/index.html.erb:
+10: 
+11: <% @authors.each do |author| %>
+12:   <tr>
+13:     <td><%= link_to h (author.name), author %></td>
+14:     <td><%= author.posts.count %></td>
+15:     <td><%= author.average_rating %></td>
+16:     <td><%= author.posts.first.body %></td>
+
+    app/models/author.rb:11:in `to_param'
+    generated code (actionpack (2.3.8) lib/action_controller/routing/route.rb:160):5:in `generate_raw'
+    (eval):17:in `author_path'
+    app/views/authors/index.html.erb:13
+    app/views/authors/index.html.erb:11:in `each'
+    app/views/authors/index.html.erb:11
+    app/controllers/authors_controller.rb:7:in `index'
+
+Rendered rescues/_trace (95.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:21:01) [GET]
+  [4;36;1mAuthor Load (0.6ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+
+ActionView::TemplateError (undefined local variable or method `url' for #<Author:0xb67545fc>) on line #13 of app/views/authors/index.html.erb:
+10: 
+11: <% @authors.each do |author| %>
+12:   <tr>
+13:     <td><%= link_to h (author.name), author %></td>
+14:     <td><%= author.posts.count %></td>
+15:     <td><%= author.average_rating %></td>
+16:     <td><%= author.posts.first.body %></td>
+
+    app/models/author.rb:11:in `to_param'
+    generated code (actionpack (2.3.8) lib/action_controller/routing/route.rb:160):5:in `generate_raw'
+    (eval):17:in `author_path'
+    app/views/authors/index.html.erb:13
+    app/views/authors/index.html.erb:11:in `each'
+    app/views/authors/index.html.erb:11
+    app/controllers/authors_controller.rb:7:in `index'
+
+Rendered rescues/_trace (46.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:22:14) [GET]
+  [4;36;1mAuthor Load (0.9ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+
+ActionView::TemplateError (undefined local variable or method `url' for #<Author:0xb6697d6c>) on line #13 of app/views/authors/index.html.erb:
+10: 
+11: <% @authors.each do |author| %>
+12:   <tr>
+13:     <td><%= link_to h (author.name), author %></td>
+14:     <td><%= author.posts.count %></td>
+15:     <td><%= author.average_rating %></td>
+16:     <td><%= author.posts.first.body %></td>
+
+    app/models/author.rb:11:in `to_param'
+    generated code (actionpack (2.3.8) lib/action_controller/routing/route.rb:160):5:in `generate_raw'
+    (eval):17:in `author_path'
+    app/views/authors/index.html.erb:13
+    app/views/authors/index.html.erb:11:in `each'
+    app/views/authors/index.html.erb:11
+    app/controllers/authors_controller.rb:7:in `index'
+
+Rendered rescues/_trace (68.9ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:22:18) [GET]
+  [4;35;1mAuthor Load (0.5ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+
+ActionView::TemplateError (undefined local variable or method `url' for #<Author:0xb67a0d94>) on line #13 of app/views/authors/index.html.erb:
+10: 
+11: <% @authors.each do |author| %>
+12:   <tr>
+13:     <td><%= link_to h (author.name), author %></td>
+14:     <td><%= author.posts.count %></td>
+15:     <td><%= author.average_rating %></td>
+16:     <td><%= author.posts.first.body %></td>
+
+    app/models/author.rb:11:in `to_param'
+    generated code (actionpack (2.3.8) lib/action_controller/routing/route.rb:160):5:in `generate_raw'
+    (eval):17:in `author_path'
+    app/views/authors/index.html.erb:13
+    app/views/authors/index.html.erb:11:in `each'
+    app/views/authors/index.html.erb:11
+    app/controllers/authors_controller.rb:7:in `index'
+
+Rendered rescues/_trace (48.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:23:14) [GET]
+  [4;36;1mAuthor Load (1.8ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 39ms (View: 26, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:23:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) [0m
+Completed in 22ms (View: 12, DB: 1) | 200 OK [http://localhost/authors/1]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:26:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = '1') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #3 of app/views/authors/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @author.name %>
+4: </p>
+5: 
+6: <table>
+
+    app/views/authors/show.html.erb:3
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (86.1ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:26:21) [GET]
+  [4;35;1mAuthor Load (0.6ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (8.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 88ms (View: 59, DB: 11) | 200 OK [http://localhost/]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:26:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAuthor Load (0.1ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = '1') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #3 of app/views/authors/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @author.name %>
+4: </p>
+5: 
+6: <table>
+
+    app/views/authors/show.html.erb:3
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (39.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:26:32) [GET]
+  Parameters: {"id"=>"hebelken"}
+  [4;36;1mAuthor Load (2.6ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'hebelken') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) [0m
+Completed in 26ms (View: 8, DB: 3) | 200 OK [http://localhost/authors/hebelken]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:27:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = '1') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #3 of app/views/authors/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @author.name %>
+4: </p>
+5: 
+6: <table>
+
+    app/views/authors/show.html.erb:3
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (84.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:27:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAuthor Load (0.1ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = '1') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #3 of app/views/authors/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @author.name %>
+4: </p>
+5: 
+6: <table>
+
+    app/views/authors/show.html.erb:3
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (48.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:27:25) [GET]
+  [4;36;1mAuthor Load (0.6ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 32ms (View: 17, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:27:26) [GET]
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 66ms (View: 11, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-06 10:27:27) [GET]
+
+ActionController::RoutingError (No route matches "/hebelken" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:27:37) [GET]
+  [4;36;1mAuthor Load (1.9ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+
+ActionView::TemplateError (undefined local variable or method `authors' for #<ActionView::Base:0xb677f4b4>) on line #13 of app/views/authors/index.html.erb:
+10: 
+11: <% @authors.each do |author| %>
+12:   <tr>
+13:     <td><%= link_to h (author.name), authors/author.name %></td>
+14:     <td><%= author.posts.count %></td>
+15:     <td><%= author.average_rating %></td>
+16:     <td><%= author.posts.first.body %></td>
+
+    app/views/authors/index.html.erb:13
+    app/views/authors/index.html.erb:11:in `each'
+    app/views/authors/index.html.erb:11
+    app/controllers/authors_controller.rb:7:in `index'
+
+Rendered rescues/_trace (38.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:27:39) [GET]
+  [4;35;1mAuthor Load (0.8ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+
+ActionView::TemplateError (undefined local variable or method `authors' for #<ActionView::Base:0xb66192b4>) on line #13 of app/views/authors/index.html.erb:
+10: 
+11: <% @authors.each do |author| %>
+12:   <tr>
+13:     <td><%= link_to h (author.name), authors/author.name %></td>
+14:     <td><%= author.posts.count %></td>
+15:     <td><%= author.average_rating %></td>
+16:     <td><%= author.posts.first.body %></td>
+
+    app/views/authors/index.html.erb:13
+    app/views/authors/index.html.erb:11:in `each'
+    app/views/authors/index.html.erb:11
+    app/controllers/authors_controller.rb:7:in `index'
+
+Rendered rescues/_trace (84.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:27:40) [GET]
+  [4;36;1mAuthor Load (0.8ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+
+ActionView::TemplateError (undefined local variable or method `authors' for #<ActionView::Base:0xb6715ac8>) on line #13 of app/views/authors/index.html.erb:
+10: 
+11: <% @authors.each do |author| %>
+12:   <tr>
+13:     <td><%= link_to h (author.name), authors/author.name %></td>
+14:     <td><%= author.posts.count %></td>
+15:     <td><%= author.average_rating %></td>
+16:     <td><%= author.posts.first.body %></td>
+
+    app/views/authors/index.html.erb:13
+    app/views/authors/index.html.erb:11:in `each'
+    app/views/authors/index.html.erb:11
+    app/controllers/authors_controller.rb:7:in `index'
+
+Rendered rescues/_trace (39.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 10:29:08) [GET]
+  [4;35;1mAuthor Load (0.6ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 72ms (View: 62, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:29:10) [GET]
+  Parameters: {"id"=>"hebelken"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'hebelken') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 1) [0m
+Completed in 16ms (View: 8, DB: 1) | 200 OK [http://localhost/authors/hebelken]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:29:27) [GET]
+  Parameters: {"id"=>"timmy"}
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'timmy') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) [0m
+Completed in 16ms (View: 8, DB: 1) | 200 OK [http://localhost/authors/timmy]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:29:31) [GET]
+  Parameters: {"id"=>"hebelken"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'hebelken') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 1) [0m
+Completed in 20ms (View: 7, DB: 1) | 200 OK [http://localhost/authors/hebelken]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 10:29:47) [GET]
+  Parameters: {"id"=>"hebelken"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'hebelken') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 1) [0m
+Completed in 19ms (View: 9, DB: 1) | 200 OK [http://localhost/authors/hebelken]
