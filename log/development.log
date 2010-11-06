@@ -2187,3 +2187,43 @@ Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:38:13) [GET]
 Rendering template within layouts/authors
 Rendering authors/show
 Completed in 12ms (View: 5, DB: 0) | 200 OK [http://localhost/authors/1]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 09:39:55) [GET]
+  [4;36;1mAuthor Load (0.6ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 33ms (View: 22, DB: 2) | 200 OK [http://localhost/authors]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 09:41:13) [GET]
+  [4;36;1mAuthor Load (0.6ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 35ms (View: 23, DB: 2) | 200 OK [http://localhost/authors]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:41:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+Completed in 11ms (View: 2, DB: 0) | 200 OK [http://localhost/authors/1]

@@ -5,6 +5,7 @@
     <th>Name</th>
     <th>Posts</th>
     <th>Average Rating</th>
+    <th>First Post</th>
   </tr>
 
 <% @authors.each do |author| %>
@@ -12,6 +13,7 @@
     <td><%=h author.name %></td>
     <td><%= author.posts.count %></td>
     <td><%= author.average_rating %></td>
+    <td><%= author.posts.first.body %></td>
     <td><%= link_to 'Show', author %></td>
     <td><%= link_to 'Edit', edit_author_path(author) %></td>
     <td><%= link_to 'Destroy', author, :confirm => 'Are you sure?', :method => :delete %></td>
