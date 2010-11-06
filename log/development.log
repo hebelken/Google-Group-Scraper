@@ -2379,3 +2379,225 @@ Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:47:48) [GET]
 Rendering template within layouts/authors
 Rendering authors/show
 Completed in 12ms (View: 2, DB: 0) | 200 OK [http://localhost/authors/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-06 09:53:46) [GET]
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 3) [0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 2) [0m
+Completed in 48ms (View: 26, DB: 2) | 200 OK [http://localhost/posts]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:53:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #12 of app/views/authors/show.html.erb:
+9:     <th>Body</th>
+10:   </tr>
+11: 
+12: <% @posts.each do |post| %>
+13:   <tr>
+14:     <td><%=h post.rating %></td>
+15:     <td><%=h post.body %></td>
+
+    app/views/authors/show.html.erb:12
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (86.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:55:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `each' for #<Author:0xb604eff0>) on line #12 of app/views/authors/show.html.erb:
+9:     <th>Body</th>
+10:   </tr>
+11: 
+12: <% @author.each do |post| %>
+13:   <tr>
+14:     <td><%=h post.rating %></td>
+15:     <td><%=h post.body %></td>
+
+    app/views/authors/show.html.erb:12
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (39.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:55:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `each' for #<Author:0xb5efa208>) on line #12 of app/views/authors/show.html.erb:
+9:     <th>Body</th>
+10:   </tr>
+11: 
+12: <% @author.each do |post| %>
+13:   <tr>
+14:     <td><%=h post.rating %></td>
+15:     <td><%=h post.body %></td>
+
+    app/views/authors/show.html.erb:12
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (87.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:55:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `each' for #<Author:0xb60277e8>) on line #12 of app/views/authors/show.html.erb:
+9:     <th>Body</th>
+10:   </tr>
+11: 
+12: <% @author.each do |post| %>
+13:   <tr>
+14:     <td><%=h post.rating %></td>
+15:     <td><%=h post.body %></td>
+
+    app/views/authors/show.html.erb:12
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (38.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:55:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `each' for #<Author:0xb5ede9f4>) on line #12 of app/views/authors/show.html.erb:
+9:     <th>Body</th>
+10:   </tr>
+11: 
+12: <% @author.each do |post| %>
+13:   <tr>
+14:     <td><%=h post.rating %></td>
+15:     <td><%=h post.body %></td>
+
+    app/views/authors/show.html.erb:12
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (81.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:55:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `each' for #<Author:0xb60155ac>) on line #12 of app/views/authors/show.html.erb:
+9:     <th>Body</th>
+10:   </tr>
+11: 
+12: <% @author.each do |post| %>
+13:   <tr>
+14:     <td><%=h post.rating %></td>
+15:     <td><%=h post.body %></td>
+
+    app/views/authors/show.html.erb:12
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (38.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:55:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `each' for #<Author:0xb5ecc880>) on line #12 of app/views/authors/show.html.erb:
+9:     <th>Body</th>
+10:   </tr>
+11: 
+12: <% @author.each do |post| %>
+13:   <tr>
+14:     <td><%=h post.rating %></td>
+15:     <td><%=h post.body %></td>
+
+    app/views/authors/show.html.erb:12
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (87.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:55:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `each' for #<Author:0xb6003a14>) on line #12 of app/views/authors/show.html.erb:
+9:     <th>Body</th>
+10:   </tr>
+11: 
+12: <% @author.each do |post| %>
+13:   <tr>
+14:     <td><%=h post.rating %></td>
+15:     <td><%=h post.body %></td>
+
+    app/views/authors/show.html.erb:12
+    app/controllers/authors_controller.rb:18:in `show'
+
+Rendered rescues/_trace (40.4ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-06 09:57:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) [0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://localhost/authors/1]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-06 09:58:05) [GET]
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (9.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 81ms (View: 61, DB: 11) | 200 OK [http://localhost/authors]
