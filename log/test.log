@@ -1552,3 +1552,131 @@ Processing PostsController#update (for 0.0.0.0 at 2010-10-30 01:46:35) [PUT]
   [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
 Redirected to http://test.host/posts/980190962
 Completed in 3ms (DB: 1) | 302 Found [http://test.host/posts/980190962?]
+  [4;36;1mSQL (15.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+
+
+Processing AuthorsController#create (for 0.0.0.0 at 2010-11-06 09:08:12) [POST]
+  Parameters: {"author"=>{}}
+  [4;35;1mAuthor Create (0.3ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES(NULL, '2010-11-06 16:08:12', '2010-11-06 16:08:12')[0m
+Redirected to http://test.host/authors/980190963
+Completed in 10ms (DB: 17) | 302 Found [http://test.host/authors?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#destroy (for 0.0.0.0 at 2010-11-06 09:08:12) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+  [4;36;1mAuthor Destroy (0.1ms)[0m   [0;1mDELETE FROM "authors" WHERE "id" = 980190962[0m
+Redirected to http://test.host/authors
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/authors/980190962]
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#edit (for 0.0.0.0 at 2010-11-06 09:08:12) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/edit
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://test.host/authors/980190962/edit]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-11-06 09:08:12) [GET]
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://test.host/authors]
+
+
+Processing AuthorsController#new (for 0.0.0.0 at 2010-11-06 09:08:12) [GET]
+Rendering template within layouts/authors
+Rendering authors/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://test.host/authors/new]
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#show (for 0.0.0.0 at 2010-11-06 09:08:12) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://test.host/authors/980190962]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-11-06 09:08:12) [GET]
+  [4;35;1mAuthor Load (0.5ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://test.host/authors]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#update (for 0.0.0.0 at 2010-11-06 09:08:12) [PUT]
+  Parameters: {"author"=>{}, "id"=>"980190962"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Redirected to http://test.host/authors/980190962
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/authors/980190962?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+
+
+Processing PostsController#create (for 0.0.0.0 at 2010-11-06 09:08:12) [POST]
+  Parameters: {"post"=>{}}
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(NULL, '2010-11-06 16:08:12', NULL, '2010-11-06 16:08:12', NULL)[0m
+Redirected to http://test.host/posts/980190963
+Completed in 7ms (DB: 0) | 302 Found [http://test.host/posts?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#destroy (for 0.0.0.0 at 2010-11-06 09:08:12) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+  [4;35;1mPost Destroy (0.1ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 980190962[0m
+Redirected to http://test.host/posts
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/posts/980190962]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#edit (for 0.0.0.0 at 2010-11-06 09:08:12) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://test.host/posts/980190962/edit]
+
+
+Processing PostsController#index (for 0.0.0.0 at 2010-11-06 09:08:12) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 923089842) [0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 923089842) [0m
+Completed in 13ms (View: 10, DB: 1) | 200 OK [http://test.host/posts]
+
+
+Processing PostsController#new (for 0.0.0.0 at 2010-11-06 09:08:12) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://test.host/posts/new]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#show (for 0.0.0.0 at 2010-11-06 09:08:12) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://test.host/posts/980190962]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#update (for 0.0.0.0 at 2010-11-06 09:08:12) [PUT]
+  Parameters: {"post"=>{}, "id"=>"980190962"}
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Redirected to http://test.host/posts/980190962
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/posts/980190962?]

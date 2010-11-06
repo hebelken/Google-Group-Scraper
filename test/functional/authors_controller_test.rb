@@ -39,7 +39,12 @@ class AuthorsControllerTest < ActionController::TestCase
     assert_difference('Author.count', -1) do
       delete :destroy, :id => authors(:one).to_param
     end
-
     assert_redirected_to authors_path
   end
+
+  test "should show number of posts on the index" do
+    get :index
+    assert_not_nil assigns(:authors).first.posts.count
+  end
+
 end
