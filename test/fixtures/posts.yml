@@ -9,3 +9,8 @@ two:
   author: jasper
   rating: 9.99
   body: MyText
+
+three:
+  author: Ken
+  rating: 3
+  body: textheere

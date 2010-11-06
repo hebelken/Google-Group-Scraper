@@ -1680,3 +1680,436 @@ Processing PostsController#update (for 0.0.0.0 at 2010-11-06 09:08:12) [PUT]
   [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
 Redirected to http://test.host/posts/980190962
 Completed in 4ms (DB: 1) | 302 Found [http://test.host/posts/980190962?]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+
+
+Processing AuthorsController#create (for 0.0.0.0 at 2010-11-06 09:18:45) [POST]
+  Parameters: {"author"=>{}}
+  [4;35;1mAuthor Create (0.3ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES(NULL, '2010-11-06 16:18:45', '2010-11-06 16:18:45')[0m
+Redirected to http://test.host/authors/980190963
+Completed in 8ms (DB: 2) | 302 Found [http://test.host/authors?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#destroy (for 0.0.0.0 at 2010-11-06 09:18:45) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+  [4;36;1mAuthor Destroy (0.1ms)[0m   [0;1mDELETE FROM "authors" WHERE "id" = 980190962[0m
+Redirected to http://test.host/authors
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/authors/980190962]
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#edit (for 0.0.0.0 at 2010-11-06 09:18:45) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/edit
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://test.host/authors/980190962/edit]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-11-06 09:18:45) [GET]
+  [4;36;1mAuthor Load (0.6ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing AuthorsController#new (for 0.0.0.0 at 2010-11-06 09:18:45) [GET]
+Rendering template within layouts/authors
+Rendering authors/new
+Completed in 4ms (View: 4, DB: 1) | 200 OK [http://test.host/authors/new]
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#show (for 0.0.0.0 at 2010-11-06 09:18:45) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://test.host/authors/980190962]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-11-06 09:18:45) [GET]
+  [4;35;1mAuthor Load (0.4ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-11-06 09:18:45) [GET]
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#update (for 0.0.0.0 at 2010-11-06 09:18:45) [PUT]
+  Parameters: {"author"=>{}, "id"=>"980190962"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Redirected to http://test.host/authors/980190962
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/authors/980190962?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+
+
+Processing PostsController#create (for 0.0.0.0 at 2010-11-06 09:18:45) [POST]
+  Parameters: {"post"=>{}}
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(NULL, '2010-11-06 16:18:45', NULL, '2010-11-06 16:18:45', NULL)[0m
+Redirected to http://test.host/posts/980190963
+Completed in 8ms (DB: 0) | 302 Found [http://test.host/posts?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#destroy (for 0.0.0.0 at 2010-11-06 09:18:45) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+  [4;35;1mPost Destroy (0.2ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 980190962[0m
+Redirected to http://test.host/posts
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/posts/980190962]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#edit (for 0.0.0.0 at 2010-11-06 09:18:45) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://test.host/posts/980190962/edit]
+
+
+Processing PostsController#index (for 0.0.0.0 at 2010-11-06 09:18:45) [GET]
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 923089842) [0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 923089842) [0m
+Completed in 12ms (View: 10, DB: 1) | 200 OK [http://test.host/posts]
+
+
+Processing PostsController#new (for 0.0.0.0 at 2010-11-06 09:18:45) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://test.host/posts/new]
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#show (for 0.0.0.0 at 2010-11-06 09:18:45) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://test.host/posts/980190962]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#update (for 0.0.0.0 at 2010-11-06 09:18:45) [PUT]
+  Parameters: {"post"=>{}, "id"=>"980190962"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Redirected to http://test.host/posts/980190962
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/posts/980190962?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+
+
+Processing AuthorsController#create (for 0.0.0.0 at 2010-11-06 09:19:23) [POST]
+  Parameters: {"author"=>{}}
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES(NULL, '2010-11-06 16:19:23', '2010-11-06 16:19:23')[0m
+Redirected to http://test.host/authors/980190963
+Completed in 7ms (DB: 4) | 302 Found [http://test.host/authors?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#destroy (for 0.0.0.0 at 2010-11-06 09:19:23) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+  [4;36;1mAuthor Destroy (0.1ms)[0m   [0;1mDELETE FROM "authors" WHERE "id" = 980190962[0m
+Redirected to http://test.host/authors
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/authors/980190962]
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#edit (for 0.0.0.0 at 2010-11-06 09:19:23) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/edit
+Completed in 8ms (View: 6, DB: 1) | 200 OK [http://test.host/authors/980190962/edit]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-11-06 09:19:23) [GET]
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 923089842) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 980190962) [0m
+Completed in 14ms (View: 12, DB: 1) | 200 OK [http://test.host/authors]
+
+
+Processing AuthorsController#new (for 0.0.0.0 at 2010-11-06 09:19:23) [GET]
+Rendering template within layouts/authors
+Rendering authors/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://test.host/authors/new]
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#show (for 0.0.0.0 at 2010-11-06 09:19:23) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://test.host/authors/980190962]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-11-06 09:19:23) [GET]
+  [4;36;1mAuthor Load (0.7ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 923089842) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 980190962) [0m
+Completed in 15ms (View: 13, DB: 1) | 200 OK [http://test.host/authors]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-11-06 09:19:23) [GET]
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 923089842) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 980190962) [0m
+Completed in 13ms (View: 11, DB: 1) | 200 OK [http://test.host/authors]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#update (for 0.0.0.0 at 2010-11-06 09:19:24) [PUT]
+  Parameters: {"author"=>{}, "id"=>"980190962"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Redirected to http://test.host/authors/980190962
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/authors/980190962?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+
+
+Processing PostsController#create (for 0.0.0.0 at 2010-11-06 09:19:24) [POST]
+  Parameters: {"post"=>{}}
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(NULL, '2010-11-06 16:19:24', NULL, '2010-11-06 16:19:24', NULL)[0m
+Redirected to http://test.host/posts/980190963
+Completed in 7ms (DB: 0) | 302 Found [http://test.host/posts?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#destroy (for 0.0.0.0 at 2010-11-06 09:19:24) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+  [4;35;1mPost Destroy (0.1ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 980190962[0m
+Redirected to http://test.host/posts
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/posts/980190962]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#edit (for 0.0.0.0 at 2010-11-06 09:19:24) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 9ms (View: 8, DB: 1) | 200 OK [http://test.host/posts/980190962/edit]
+
+
+Processing PostsController#index (for 0.0.0.0 at 2010-11-06 09:19:24) [GET]
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 923089842) [0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 923089842) [0m
+Completed in 11ms (View: 9, DB: 1) | 200 OK [http://test.host/posts]
+
+
+Processing PostsController#new (for 0.0.0.0 at 2010-11-06 09:19:24) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://test.host/posts/new]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#show (for 0.0.0.0 at 2010-11-06 09:19:24) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://test.host/posts/980190962]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#update (for 0.0.0.0 at 2010-11-06 09:19:24) [PUT]
+  Parameters: {"post"=>{}, "id"=>"980190962"}
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Redirected to http://test.host/posts/980190962
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/posts/980190962?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+
+
+Processing AuthorsController#create (for 0.0.0.0 at 2010-11-06 09:21:58) [POST]
+  Parameters: {"author"=>{}}
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES(NULL, '2010-11-06 16:21:58', '2010-11-06 16:21:58')[0m
+Redirected to http://test.host/authors/980190963
+Completed in 7ms (DB: 2) | 302 Found [http://test.host/authors?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#destroy (for 0.0.0.0 at 2010-11-06 09:21:58) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.4ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+  [4;36;1mAuthor Destroy (0.1ms)[0m   [0;1mDELETE FROM "authors" WHERE "id" = 980190962[0m
+Redirected to http://test.host/authors
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/authors/980190962]
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "authors" [0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#edit (for 0.0.0.0 at 2010-11-06 09:21:58) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/edit
+Completed in 8ms (View: 6, DB: 1) | 200 OK [http://test.host/authors/980190962/edit]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-11-06 09:21:58) [GET]
+  [4;36;1mAuthor Load (0.5ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 923089842) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 980190962) [0m
+Completed in 15ms (View: 13, DB: 1) | 200 OK [http://test.host/authors]
+
+
+Processing AuthorsController#new (for 0.0.0.0 at 2010-11-06 09:21:58) [GET]
+Rendering template within layouts/authors
+Rendering authors/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://test.host/authors/new]
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#show (for 0.0.0.0 at 2010-11-06 09:21:58) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Rendering template within layouts/authors
+Rendering authors/show
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://test.host/authors/980190962]
+
+
+Processing AuthorsController#index (for 0.0.0.0 at 2010-11-06 09:21:58) [GET]
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 923089842) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 980190962) [0m
+Completed in 13ms (View: 12, DB: 1) | 200 OK [http://test.host/authors]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 298486374) [0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+
+
+Processing AuthorsController#update (for 0.0.0.0 at 2010-11-06 09:21:58) [PUT]
+  Parameters: {"author"=>{}, "id"=>"980190962"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 980190962) [0m
+Redirected to http://test.host/authors/980190962
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/authors/980190962?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+
+
+Processing PostsController#create (for 0.0.0.0 at 2010-11-06 09:21:58) [POST]
+  Parameters: {"post"=>{}}
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(NULL, '2010-11-06 16:21:58', NULL, '2010-11-06 16:21:58', NULL)[0m
+Redirected to http://test.host/posts/980190963
+Completed in 7ms (DB: 0) | 302 Found [http://test.host/posts?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#destroy (for 0.0.0.0 at 2010-11-06 09:21:58) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+  [4;35;1mPost Destroy (0.2ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 980190962[0m
+Redirected to http://test.host/posts
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/posts/980190962]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#edit (for 0.0.0.0 at 2010-11-06 09:21:58) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://test.host/posts/980190962/edit]
+
+
+Processing PostsController#index (for 0.0.0.0 at 2010-11-06 09:21:58) [GET]
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."id" = 923089842) [0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 923089842) [0m
+Completed in 12ms (View: 10, DB: 1) | 200 OK [http://test.host/posts]
+
+
+Processing PostsController#new (for 0.0.0.0 at 2010-11-06 09:21:58) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://test.host/posts/new]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#show (for 0.0.0.0 at 2010-11-06 09:21:58) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://test.host/posts/980190962]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+
+
+Processing PostsController#update (for 0.0.0.0 at 2010-11-06 09:21:59) [PUT]
+  Parameters: {"post"=>{}, "id"=>"980190962"}
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 980190962) [0m
+Redirected to http://test.host/posts/980190962
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/posts/980190962?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = NULL) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = NULL) [0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('Ken', '2010-11-06 16:33:34', '2010-11-06 16:33:34')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(5.0, '2010-11-06 16:33:34', NULL, '2010-11-06 16:33:34', 980190963)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 980190963) [0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES('Ken', '2010-11-06 16:34:38', '2010-11-06 16:34:38')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "author_id") VALUES(5.0, '2010-11-06 16:34:38', NULL, '2010-11-06 16:34:38', 980190963)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 980190963) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 980190963) [0m
