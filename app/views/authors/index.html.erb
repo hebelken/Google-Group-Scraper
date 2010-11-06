@@ -10,13 +10,10 @@
 
 <% @authors.each do |author| %>
   <tr>
-    <td><%=h author.name %></td>
+    <td><%= link_to h (author.name), author %></td>
     <td><%= author.posts.count %></td>
     <td><%= author.average_rating %></td>
     <td><%= author.posts.first.body %></td>
-    <td><%= link_to 'Show', author %></td>
-    <td><%= link_to 'Edit', edit_author_path(author) %></td>
-    <td><%= link_to 'Destroy', author, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
