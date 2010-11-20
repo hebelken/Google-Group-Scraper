@@ -1,0 +1,18 @@
+<%= form_tag ('/retrieve_posts') %>
+  <table>
+    <tr>
+      <td>Feed URL:</td>
+      <td><%= text_field_tag 'Feed'-%></td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><%= text_field_tag 'Email'-%></td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td><%= password_field_tag 'Password'-%></td>
+    </tr>
+  </table>
+  
+  <div><%= submit_tag 'Analyze' %></div>
+
