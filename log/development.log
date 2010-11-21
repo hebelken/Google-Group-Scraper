@@ -10815,3 +10815,1039 @@ The error occurred while evaluating nil.split):
 Rendered rescues/_trace (33.5ms)
 Rendered rescues/_request_and_response (0.5ms)
 Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-21 13:32:09) [GET]
+
+ActionController::MethodNotAllowed (Only post requests are allowed.):
+  
+
+Rendered rescues/_trace (66.3ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (method_not_allowed)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-11-21 13:32:41) [GET]
+Rendering home/index
+Completed in 69ms (View: 67, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#retrieve_posts (for 127.0.0.1 at 2010-11-21 13:32:49) [POST]
+  Parameters: {"commit"=>"Analyze", "authenticity_token"=>"z5a9YoyIyC+C+E6wBAvxJlmlZk7mqN0qk6ZFmFDi/rc=", "password"=>"trustNeck22", "feed"=>"http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml", "email"=>"hebelken@gmail.com"}
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/d5a4337ee854cca5/43043ab402673495?show_docid=43043ab402673495') LIMIT 1[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/585dc1bb3d3bc506/02b76c97ee2e7f22?show_docid=02b76c97ee2e7f22') LIMIT 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a688753b14441143/396015f5775149bb?show_docid=396015f5775149bb') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.3ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:32:51', 'All:Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.)Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:  Damodar Chetty   Concepts from the first three chapters of his book *Tomcat 6 Developer''s Guide*   http://www.cjug.org/Wiki.jsp?page=2010.04.20.downtown   Kasbeer Hall, 15th floor, Corboy Law Center   Loyola University of Chicago   25 E. Pearson St.Future meetings are listed here:  http://www.cjug.org/Wiki.jsp?page=FutureMeetingsRegards,-- Konstantin Läuferhttp://home.laufer.cs.luc.edu/contact-- Subscription settings: http://groups.google.com/group/luc-cs-hpc-f09/subscribe?hl=en', '2010-11-21 21:32:51', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a688753b14441143/396015f5775149bb?show_docid=396015f5775149bb', 1, 4)[0m
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" IS NULL) LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES(NULL, '2010-11-21 21:32:51', '2010-11-21 21:32:51', NULL)[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.split):
+  app/services/parse.rb:51:in `parse_post'
+  app/services/parse.rb:47:in `each'
+  app/services/parse.rb:47:in `parse_post'
+  app/services/parse.rb:37:in `get_posts'
+  app/services/parse.rb:35:in `each'
+  app/services/parse.rb:35:in `get_posts'
+  app/controllers/home_controller.rb:9:in `retrieve_posts'
+
+Rendered rescues/_trace (33.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (9.4ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "feed_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mCREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (9.7ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "rating" decimal, "body" text, "created_at" datetime, "updated_at" datetime, "feed_id" integer, "url" varchar(255)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (7.2ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (5.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101120201104')[0m
+  [4;36;1mSQL (9.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101030073221')[0m
+  [4;35;1mSQL (5.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101030071752')[0m
+  [4;36;1mSQL (7.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101120083737')[0m
+  [4;35;1mSQL (7.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101120083117')[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101120083453')[0m
+  [4;35;1mAuthor Create (0.3ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('hebelken', '2010-11-21 21:44:11', '2010-11-21 21:44:11', NULL)[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('timmy', '2010-11-21 21:44:11', '2010-11-21 21:44:11', NULL)[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('barny Stinson', '2010-11-21 21:44:11', '2010-11-21 21:44:11', NULL)[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(5.0, '2010-11-21 21:44:11', 'yo tina, I''mma let you finish but jeffry has the...', '2010-11-21 21:44:11', NULL, NULL, 1)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(1.0, '2010-11-21 21:44:12', 'herp-derp dee deed derp', '2010-11-21 21:44:12', NULL, NULL, 1)[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(2.0, '2010-11-21 21:44:12', 'this is the name that is mine my post is baller and I look so fine', '2010-11-21 21:44:12', NULL, NULL, 3)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(5.0, '2010-11-21 21:44:12', 'this is alebeeb psors dort aohtem lariousemsasdgnm ipsotmsatmm', '2010-11-21 21:44:12', NULL, NULL, 2)[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-11-21 13:44:31) [GET]
+Rendering home/index
+Completed in 48ms (View: 46, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#retrieve_posts (for 127.0.0.1 at 2010-11-21 13:44:37) [POST]
+  Parameters: {"commit"=>"Analyze", "authenticity_token"=>"z5a9YoyIyC+C+E6wBAvxJlmlZk7mqN0qk6ZFmFDi/rc=", "password"=>"trustNeck22", "feed"=>"http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml", "email"=>"hebelken@gmail.com"}
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/d5a4337ee854cca5/43043ab402673495?show_docid=43043ab402673495') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.5ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Konstantin Läufer', '2010-11-21 21:44:39', '2010-11-21 21:44:39', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mFeed Create (0.2ms)[0m   [0;1mINSERT INTO "feeds" ("created_at", "updated_at", "url") VALUES('2010-11-21 21:44:39', '2010-11-21 21:44:39', 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml')[0m
+  [4;35;1mPost Create (0.3ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:39', 'All:Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.)Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:  Rakesh Vidyadharan: Google DataStore API   Anil Saldhana: App Engine Deployment   http://www.cjug.org/Wiki.jsp?page=2010.05.18.downtown   Lewis Towers Ballroom, Beane Hall   820 N Michigan Ave, 13th floor   Future meetings are listed here:  http://www.cjug.org/Wiki.jsp?page=FutureMeetingsRSVP through the site.Regards,-- Konstantin Läuferhttp://home.laufer.cs.luc.edu/contact', '2010-11-21 21:44:39', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/d5a4337ee854cca5/43043ab402673495?show_docid=43043ab402673495', 1, 4)[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/585dc1bb3d3bc506/02b76c97ee2e7f22?show_docid=02b76c97ee2e7f22') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Chris Bun') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Chris Bun', '2010-11-21 21:44:39', '2010-11-21 21:44:39', NULL)[0m
+  [4;35;1mFeed Load (0.3ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:39', 'Very interesting article about newly discovered memristors.End of the Von Neumann architecture?http://highscalability.com/blog/2010/5/5/how-will-memristors-change-e...', '2010-11-21 21:44:39', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/585dc1bb3d3bc506/02b76c97ee2e7f22?show_docid=02b76c97ee2e7f22', 1, 5)[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a688753b14441143/396015f5775149bb?show_docid=396015f5775149bb') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;35;1mFeed Load (0.3ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:39', 'All:Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.)Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:  Damodar Chetty   Concepts from the first three chapters of his book *Tomcat 6 Developer''s Guide*   http://www.cjug.org/Wiki.jsp?page=2010.04.20.downtown   Kasbeer Hall, 15th floor, Corboy Law Center   Loyola University of Chicago   25 E. Pearson St.Future meetings are listed here:  http://www.cjug.org/Wiki.jsp?page=FutureMeetingsRegards,-- Konstantin Läuferhttp://home.laufer.cs.luc.edu/contact-- Subscription settings: http://groups.google.com/group/luc-cs-hpc-f09/subscribe?hl=en', '2010-11-21 21:44:39', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a688753b14441143/396015f5775149bb?show_docid=396015f5775149bb', 1, 4)[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4a8f11720b061505/092f90e9fdf20b7c?show_docid=092f90e9fdf20b7c') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:40', 'All: Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.) Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:   *Agile All The Way Down* and *Update On the Oracle/Sun Merger*   http://www.cjug.org/Wiki.jsp?page=2010.03.16.downtown   Corboy Law Center, Room 1401   Loyola University of Chicago   25 E. Pearson St. Future meetings are listed here:   http://www.cjug.org/Wiki.jsp?page=FutureMeetings Regards, -- Konstantin Läufer www.cs.luc.edu/laufer/contact', '2010-11-21 21:44:40', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4a8f11720b061505/092f90e9fdf20b7c?show_docid=092f90e9fdf20b7c', 1, 4)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/2267df1e5fd8464b/e9051a923c15f593?show_docid=e9051a923c15f593') LIMIT 1[0m
+  [4;36;1mAuthor Load (1.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matthew Wojtowicz') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Matthew Wojtowicz', '2010-11-21 21:44:40', '2010-11-21 21:44:40', NULL)[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:40', 'Well as I have been getting deeper into the Android library, I have begun to notice a few things.    - I am repeating a lot of code for common tasks(db, barcode, gps,... )    - Common place for instruction  is not found (I use google, blogs,    stackoverflow,...)    - Books talk technical not practical of if so not usefully("this is how    you take a picture", but I want to change the quality and size too)    - Android documentation is BAD!(There love of the complex design doesn''t    help) What I propose is a one-stop resource for all your android needs. This includes helper/fascade code, proper documentation, example code, and meaningful tutorials. Resources will be posted onto google''s hosting probability. I would like to have something presentable by April''s Chicago GTUG Here are some resources that I would like to begin with http://www.damonkohler.com/2009/02/android-recipes.html http://code.google.com/p/android-tools/  <http://code.google.com/p/android-tools/>No matter your level of expertise, If you are interested send me an email.  <http://code.google.com/p/android-tools/>  Matthew K Wojtowicz Loyola Research Assistant Android Developer Mail: matt...@gmail.com Phone: +1(773)413-0202 Skype: mwojtow0202', '2010-11-21 21:44:40', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/2267df1e5fd8464b/e9051a923c15f593?show_docid=e9051a923c15f593', 1, 6)[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4b6ee633099e28ed/eaf32c71b0bc1b08?show_docid=eaf32c71b0bc1b08') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.4ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:40', 'All: Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.) *Please note that this presentation is NOT at Loyola as a one-time exception. * Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:   http://www.cjug.org/Wiki.jsp?page=2010.02.16.downtown   Dotomi, 168 North Clinton Street   Speaker: Yair Goldfinger, co-founder of Mirabilis, the company that developed ICQ Future meetings are listed here:   http://www.cjug.org/Wiki.jsp?page=FutureMeetings Regards, -- Konstantin Läufer www.cs.luc.edu/laufer/contact', '2010-11-21 21:44:40', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4b6ee633099e28ed/eaf32c71b0bc1b08?show_docid=eaf32c71b0bc1b08', 1, 4)[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/97b67dc2b435a3d4/abc7f03aef8f431f?show_docid=abc7f03aef8f431f') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Ivan Omar') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Ivan Omar', '2010-11-21 21:44:41', '2010-11-21 21:44:41', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:41', 'IVAn', '2010-11-21 21:44:41', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/97b67dc2b435a3d4/abc7f03aef8f431f?show_docid=abc7f03aef8f431f', 1, 7)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/ccaf035d4c0ce50c/809335b2a5c63cd9?show_docid=809335b2a5c63cd9') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'George Thiruvathukal') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.3ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('George Thiruvathukal', '2010-11-21 21:44:41', '2010-11-21 21:44:41', NULL)[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:41', 'Dear All: I am writing this e-mail on behalf of Dr. Honig, who is teaching the Microcomputer Design course next term. Given the significant number of students who were interested in hardware and hacking in general in this course, I would like to encourage you to sign up for this course. There are presently only 8 students enrolled, and in general a course needs 10 students to be assured of making the cut. I hope that a couple of students from the HPC course would be willing to enroll. Dr. Honig''s classes are usually project-oriented and fun, so I am assuming that this class will be manageable for most of you, now that you have survived the HPC experience. It is very important to me, personally, that this course not be cancelled. I am working hard to take the department in new directions that emphasize systems and engineering and have been working with William to grow this area for a few years now. So I hope you''ll respond to the call and find a way to add this class to your schedule for next term. George -- George K. Thiruvathukal, Ph.D. - http://www.thiruvathukal.com', '2010-11-21 21:44:41', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/ccaf035d4c0ce50c/809335b2a5c63cd9?show_docid=809335b2a5c63cd9', 1, 8)[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('SteveJMarist', '2010-11-21 21:44:42', '2010-11-21 21:44:42', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:42', 'Hey guys, hope everyone is enjoying their winter break so far. I had a question about something and thought this would be a nice place to get it out there. With the few weeks we have, I''ve been inspired by Steve and Ken to learn C; however, I''m having significant trouble figuring out how to use Visual Studio 2008 to compile C source code (msdn''s tutorial says something about using the "notepad" command, but VS isn''t recognizing the command). I also tried installing Dev- C++ but apparently it''s not compatible with a 64-bit OS. Any recommendations-- including text editors for C on Windows 64-bit platform-- you guys could give me would be greatly appreciated. Hope everyone has a great Xmas.-- Steve James', '2010-11-21 21:44:42', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matthew Wojtowicz') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:42', 'Notepad ++ is a good text edtior for windows.For C I would recommend using a gcc to compile your files.', '2010-11-21 21:44:42', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 6)[0m
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Joseph Kaylor', '2010-11-21 21:44:42', '2010-11-21 21:44:42', NULL)[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:42', 'I''d recommend starting in Linux with GCC and make files. The environment isn''t quite as important when learning a new language.Here''s a good book:http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com>wrote:- Hide quoted text -- Show quoted text -> Notepad ++ is a good text edtior for windows.> For C I would recommend using a gcc to compile your files.>', '2010-11-21 21:44:42', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 10)[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'luther07') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('luther07', '2010-11-21 21:44:42', '2010-11-21 21:44:42', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:42', 'Steve, I would recommend that you go to http://www.cygwin.com/ and click on "Install Cygwin now". "Cygwin is a Linux-like environment for Windows." "Note that Windows 7 and later will only be supported starting with the 1.7 version of Cygwin." Hopefully you don''t have Windows 7. From the setup program choose the compliers and text editors that you want. I believe "nano" is an easy text editor to use.Good luck, MarkOn Dec 14, 12:31 am, Joseph Kaylor <joekay...@gmail.com> wrote:- Hide quoted text -- Show quoted text -> I''d recommend starting in Linux with GCC and make files. The environment > isn''t quite as important when learning a new language.> Here''s a good book:http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...> On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com>wrote:> > Notepad ++ is a good text edtior for windows.> > For C I would recommend using a gcc to compile your files.> >', '2010-11-21 21:44:42', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 11)[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:42', 'It should be fine on Windows 7. I''ve been using it on my installation for a bit now.- Hide quoted text -- Show quoted text -On Mon, Dec 14, 2009 at 5:45 AM, luther07 <luthe...@gmail.com> wrote: > Steve, > I would recommend that you go to http://www.cygwin.com/ and click on > "Install Cygwin now". > "Cygwin is a Linux-like environment for Windows." > "Note that Windows 7 and later will only be supported starting with > the 1.7 version of Cygwin." > Hopefully you don''t have Windows 7. > From the setup program choose the compliers and text editors that you > want. I believe "nano" is an easy text editor to use.> Good luck, > Mark> On Dec 14, 12:31 am, Joseph Kaylor <joekay...@gmail.com> wrote: > > I''d recommend starting in Linux with GCC and make files. The environment > > isn''t quite as important when learning a new language.> > Here''s a good book: > http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...> > On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com > >wrote:> > > Notepad ++ is a good text edtior for windows.> > > For C I would recommend using a gcc to compile your files.> > >', '2010-11-21 21:44:42', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 10)[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:42', 'Thanks guys! I do actually have Windows 7, so hopefully Joe is right. I will probably install a few of these things you guys have mentioned just to check them out.On Dec 14, 7:02 am, Joseph Kaylor <joekay...@gmail.com> wrote:- Hide quoted text -- Show quoted text -> It should be fine on Windows 7. I''ve been using it on my installation for a > bit now.> On Mon, Dec 14, 2009 at 5:45 AM, luther07 <luthe...@gmail.com> wrote: > > Steve, > > I would recommend that you go tohttp://www.cygwin.com/and click on > > "Install Cygwin now". > > "Cygwin is a Linux-like environment for Windows." > > "Note that Windows 7 and later will only be supported starting with > > the 1.7 version of Cygwin." > > Hopefully you don''t have Windows 7. > > From the setup program choose the compliers and text editors that you > > want. I believe "nano" is an easy text editor to use.> > Good luck, > > Mark> > On Dec 14, 12:31 am, Joseph Kaylor <joekay...@gmail.com> wrote: > > > I''d recommend starting in Linux with GCC and make files. The environment > > > isn''t quite as important when learning a new language.> > > Here''s a good book: > >http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...> > > On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com > > >wrote:> > > > Notepad ++ is a good text edtior for windows.> > > > For C I would recommend using a gcc to compile your files.> > > >', '2010-11-21 21:44:42', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:42', 'Just an update: I sort of combined all of your suggestions for my C working environment. I''m using Notepad++ for my text editor (thanks Matthew) and Cygwin and a GCC compiler to compile and run my programs. Thanks again for your help guys! Happy Holidays.', '2010-11-21 21:44:42', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;35;1mAuthor Load (0.4ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:42', 'Do you guys know of a way around running a cygwin-built app outside of cygwin? As I''m sure you know, you get the error "cygwin1.dll is missing" if you attempt to do so. I''m assuming it isn''t possible to run it outside of cygwin, but if there is a way around it it would be nice to know. On Dec 16, 6:45 pm, SteveJMarist <sjam...@luc.edu> wrote: - Hide quoted text -- Show quoted text -> Just an update: I sort of combined all of your suggestions for my C > working environment. I''m using Notepad++ for my text editor (thanks > Matthew) and Cygwin and a GCC compiler to compile and run my programs. > Thanks again for your help guys! Happy Holidays.', '2010-11-21 21:44:42', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/598238af540b2576/77f7129a363b3b0c?show_docid=77f7129a363b3b0c') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Purav Patel') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Purav Patel', '2010-11-21 21:44:43', '2010-11-21 21:44:43', NULL)[0m
+  [4;35;1mFeed Load (0.5ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:43', 'Baseball HPC project is up with code and paper.http://code.google.com/p/baseballhpc/', '2010-11-21 21:44:43', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/598238af540b2576/77f7129a363b3b0c?show_docid=77f7129a363b3b0c', 1, 12)[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/1f40d860f68ca519/db75bed2cac0b2ee?show_docid=db75bed2cac0b2ee') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Marty Heath') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Marty Heath', '2010-11-21 21:44:43', '2010-11-21 21:44:43', NULL)[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:43', 'Here is the final project page for Pawel Grecholski and Marty Heathhttp://code.google.com/p/grecholski-heath-hpc-final/', '2010-11-21 21:44:43', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/1f40d860f68ca519/db75bed2cac0b2ee?show_docid=db75bed2cac0b2ee', 1, 13)[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/53363e2425a4749f/167e727a8e302179?show_docid=167e727a8e302179') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Eric Sauer') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.4ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Eric Sauer', '2010-11-21 21:44:43', '2010-11-21 21:44:43', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:43', 'Here''s our project site. Documents page contains our presentation and (soon) our paper.http://sites.google.com/site/urbanityfactororg/', '2010-11-21 21:44:43', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/53363e2425a4749f/167e727a8e302179?show_docid=167e727a8e302179', 1, 14)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/9471932cddc36dbb/11a47b31e030e547?show_docid=11a47b31e030e547') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matt') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Matt', '2010-11-21 21:44:44', '2010-11-21 21:44:44', NULL)[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:44', 'Saving the best for lasthttp://code.google.com/p/audio-representation/', '2010-11-21 21:44:44', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/9471932cddc36dbb/11a47b31e030e547?show_docid=11a47b31e030e547', 1, 15)[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a828228d2f8e075d/ff94fac821d3868f?show_docid=ff94fac821d3868f') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.4ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:44', 'I just realized that I forgot to share the code for this project with everyone. I haven''t set up in google code yet because the state of the code isn''t very good, but I''ve created a site in Google Sites with the prototype version. You can find that site here:http://sites.google.com/site/msilgc/If this project ever progresses further than where it stands right now, I''ll keep this site up to date.-joe', '2010-11-21 21:44:44', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a828228d2f8e075d/ff94fac821d3868f?show_docid=ff94fac821d3868f', 1, 10)[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/366e06b22c23d3b0/b75e3fc79331823e?show_docid=b75e3fc79331823e') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Steve H') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Steve H', '2010-11-21 21:44:44', '2010-11-21 21:44:44', NULL)[0m
+  [4;35;1mFeed Load (0.3ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:44:44', 'Our code, report, and project in its entirety can be found athttp://sites.google.com/site/griopenclThanks to all for a great and interesting semester.', '2010-11-21 21:44:44', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/366e06b22c23d3b0/b75e3fc79331823e?show_docid=b75e3fc79331823e', 1, 16)[0m
+Redirected to http://localhost:3000/authors
+Completed in 7067ms (DB: 22) | 302 Found [http://localhost/retrieve_posts]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-21 13:44:45) [GET]
+  [4;35;1mAuthor Load (5.5ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 4) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 4) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 4) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 5) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 5) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 5) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 6) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 6) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 6) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 7) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 7) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 7) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 8) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 8) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 8) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 9) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 9) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 9) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 10) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 10) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 10) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 11) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 11) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 11) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 12) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 12) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 12) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 13) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 13) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 13) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 14) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 14) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 14) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 15) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 15) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 15) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 16) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 16) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 16) LIMIT 1[0m
+Completed in 77ms (View: 57, DB: 15) | 200 OK [http://localhost/authors]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 13:44:55) [GET]
+  Parameters: {"id"=>"Konstantin Läufer"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 4) [0m
+Completed in 39ms (View: 30, DB: 1) | 200 OK [http://localhost/authors/Konstantin%20L%C3%A4ufer]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 13:45:03) [GET]
+  Parameters: {"id"=>"Chris Bun"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Chris Bun') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 5) [0m
+Completed in 112ms (View: 104, DB: 1) | 200 OK [http://localhost/authors/Chris%20Bun]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 13:48:26) [GET]
+  Parameters: {"id"=>"Konstantin Läufer"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 4) [0m
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/authors/Konstantin%20L%C3%A4ufer]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 13:48:49) [GET]
+  Parameters: {"id"=>"luther07"}
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'luther07') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 11) [0m
+Completed in 20ms (View: 9, DB: 1) | 200 OK [http://localhost/authors/luther07]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 13:49:34) [GET]
+  Parameters: {"id"=>"Matthew Wojtowicz"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matthew Wojtowicz') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 6) [0m
+Completed in 16ms (View: 8, DB: 1) | 200 OK [http://localhost/authors/Matthew%20Wojtowicz]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 13:49:51) [GET]
+  Parameters: {"id"=>"luther07"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'luther07') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 11) [0m
+Completed in 16ms (View: 8, DB: 1) | 200 OK [http://localhost/authors/luther07]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.1ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "feed_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (31.6ms)[0m   [0;1mCREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (10.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "rating" decimal, "body" text, "created_at" datetime, "updated_at" datetime, "feed_id" integer, "url" varchar(255)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (6.7ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (6.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101120201104')[0m
+  [4;36;1mSQL (42.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101030073221')[0m
+  [4;35;1mSQL (49.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101030071752')[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101120083737')[0m
+  [4;35;1mSQL (6.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101120083117')[0m
+  [4;36;1mSQL (6.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101120083453')[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('hebelken', '2010-11-21 21:54:39', '2010-11-21 21:54:39', NULL)[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('timmy', '2010-11-21 21:54:39', '2010-11-21 21:54:39', NULL)[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('barny Stinson', '2010-11-21 21:54:39', '2010-11-21 21:54:39', NULL)[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(5.0, '2010-11-21 21:54:39', 'yo tina, I''mma let you finish but jeffry has the...', '2010-11-21 21:54:39', NULL, NULL, 1)[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(1.0, '2010-11-21 21:54:39', 'herp-derp dee deed derp', '2010-11-21 21:54:39', NULL, NULL, 1)[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(2.0, '2010-11-21 21:54:39', 'this is the name that is mine my post is baller and I look so fine', '2010-11-21 21:54:39', NULL, NULL, 3)[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(5.0, '2010-11-21 21:54:39', 'this is alebeeb psors dort aohtem lariousemsasdgnm ipsotmsatmm', '2010-11-21 21:54:39', NULL, NULL, 2)[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-11-21 13:54:49) [GET]
+Rendering home/index
+Completed in 50ms (View: 48, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#retrieve_posts (for 127.0.0.1 at 2010-11-21 13:54:54) [POST]
+  Parameters: {"commit"=>"Analyze", "authenticity_token"=>"z5a9YoyIyC+C+E6wBAvxJlmlZk7mqN0qk6ZFmFDi/rc=", "password"=>"trustNEck22", "feed"=>"http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml", "email"=>"hebelken@gmail.com"}
+Redirected to http://localhost:3000/authors
+Completed in 354ms (DB: 0) | 302 Found [http://localhost/retrieve_posts]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-21 13:54:55) [GET]
+  [4;36;1mAuthor Load (0.9ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 40ms (View: 24, DB: 5) | 200 OK [http://localhost/authors]
+
+
+Processing HomeController#retrieve_posts (for 127.0.0.1 at 2010-11-21 13:55:02) [POST]
+  Parameters: {"commit"=>"Analyze", "authenticity_token"=>"z5a9YoyIyC+C+E6wBAvxJlmlZk7mqN0qk6ZFmFDi/rc=", "password"=>"trustNeck22", "feed"=>"http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml", "email"=>"hebelken@gmail.com"}
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/d5a4337ee854cca5/43043ab402673495?show_docid=43043ab402673495') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.1ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.3ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Konstantin Läufer', '2010-11-21 21:55:15', '2010-11-21 21:55:15', NULL)[0m
+  [4;35;1mFeed Load (0.1ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mFeed Create (0.1ms)[0m   [0;1mINSERT INTO "feeds" ("created_at", "updated_at", "url") VALUES('2010-11-21 21:55:15', '2010-11-21 21:55:15', 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml')[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:15', 'All:Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.)Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:  Rakesh Vidyadharan: Google DataStore API   Anil Saldhana: App Engine Deployment   http://www.cjug.org/Wiki.jsp?page=2010.05.18.downtown   Lewis Towers Ballroom, Beane Hall   820 N Michigan Ave, 13th floor   Future meetings are listed here:  http://www.cjug.org/Wiki.jsp?page=FutureMeetingsRSVP through the site.Regards,-- Konstantin Läuferhttp://home.laufer.cs.luc.edu/contact', '2010-11-21 21:55:15', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/d5a4337ee854cca5/43043ab402673495?show_docid=43043ab402673495', 1, 4)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/585dc1bb3d3bc506/02b76c97ee2e7f22?show_docid=02b76c97ee2e7f22') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Chris Bun') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Chris Bun', '2010-11-21 21:55:15', '2010-11-21 21:55:15', NULL)[0m
+  [4;35;1mFeed Load (0.3ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:15', 'Very interesting article about newly discovered memristors.End of the Von Neumann architecture?http://highscalability.com/blog/2010/5/5/how-will-memristors-change-e...', '2010-11-21 21:55:15', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/585dc1bb3d3bc506/02b76c97ee2e7f22?show_docid=02b76c97ee2e7f22', 1, 5)[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a688753b14441143/396015f5775149bb?show_docid=396015f5775149bb') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:15', 'All:Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.)Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:  Damodar Chetty   Concepts from the first three chapters of his book *Tomcat 6 Developer''s Guide*   http://www.cjug.org/Wiki.jsp?page=2010.04.20.downtown   Kasbeer Hall, 15th floor, Corboy Law Center   Loyola University of Chicago   25 E. Pearson St.Future meetings are listed here:  http://www.cjug.org/Wiki.jsp?page=FutureMeetingsRegards,-- Konstantin Läuferhttp://home.laufer.cs.luc.edu/contact-- Subscription settings: http://groups.google.com/group/luc-cs-hpc-f09/subscribe?hl=en', '2010-11-21 21:55:15', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a688753b14441143/396015f5775149bb?show_docid=396015f5775149bb', 1, 4)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4a8f11720b061505/092f90e9fdf20b7c?show_docid=092f90e9fdf20b7c') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;35;1mFeed Load (0.3ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:16', 'All: Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.) Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:   *Agile All The Way Down* and *Update On the Oracle/Sun Merger*   http://www.cjug.org/Wiki.jsp?page=2010.03.16.downtown   Corboy Law Center, Room 1401   Loyola University of Chicago   25 E. Pearson St. Future meetings are listed here:   http://www.cjug.org/Wiki.jsp?page=FutureMeetings Regards, -- Konstantin Läufer www.cs.luc.edu/laufer/contact', '2010-11-21 21:55:16', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4a8f11720b061505/092f90e9fdf20b7c?show_docid=092f90e9fdf20b7c', 1, 4)[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/2267df1e5fd8464b/e9051a923c15f593?show_docid=e9051a923c15f593') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matthew Wojtowicz') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Matthew Wojtowicz', '2010-11-21 21:55:16', '2010-11-21 21:55:16', NULL)[0m
+  [4;36;1mFeed Load (38.9ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:16', 'Well as I have been getting deeper into the Android library, I have begun to notice a few things.    - I am repeating a lot of code for common tasks(db, barcode, gps,... )    - Common place for instruction  is not found (I use google, blogs,    stackoverflow,...)    - Books talk technical not practical of if so not usefully("this is how    you take a picture", but I want to change the quality and size too)    - Android documentation is BAD!(There love of the complex design doesn''t    help) What I propose is a one-stop resource for all your android needs. This includes helper/fascade code, proper documentation, example code, and meaningful tutorials. Resources will be posted onto google''s hosting probability. I would like to have something presentable by April''s Chicago GTUG Here are some resources that I would like to begin with http://www.damonkohler.com/2009/02/android-recipes.html http://code.google.com/p/android-tools/  <http://code.google.com/p/android-tools/>No matter your level of expertise, If you are interested send me an email.  <http://code.google.com/p/android-tools/>  Matthew K Wojtowicz Loyola Research Assistant Android Developer Mail: matt...@gmail.com Phone: +1(773)413-0202 Skype: mwojtow0202', '2010-11-21 21:55:16', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/2267df1e5fd8464b/e9051a923c15f593?show_docid=e9051a923c15f593', 1, 6)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4b6ee633099e28ed/eaf32c71b0bc1b08?show_docid=eaf32c71b0bc1b08') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:16', 'All: Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.) *Please note that this presentation is NOT at Loyola as a one-time exception. * Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:   http://www.cjug.org/Wiki.jsp?page=2010.02.16.downtown   Dotomi, 168 North Clinton Street   Speaker: Yair Goldfinger, co-founder of Mirabilis, the company that developed ICQ Future meetings are listed here:   http://www.cjug.org/Wiki.jsp?page=FutureMeetings Regards, -- Konstantin Läufer www.cs.luc.edu/laufer/contact', '2010-11-21 21:55:16', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4b6ee633099e28ed/eaf32c71b0bc1b08?show_docid=eaf32c71b0bc1b08', 1, 4)[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/97b67dc2b435a3d4/abc7f03aef8f431f?show_docid=abc7f03aef8f431f') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Ivan Omar') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Ivan Omar', '2010-11-21 21:55:17', '2010-11-21 21:55:17', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:17', 'IVAn', '2010-11-21 21:55:17', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/97b67dc2b435a3d4/abc7f03aef8f431f?show_docid=abc7f03aef8f431f', 1, 7)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/ccaf035d4c0ce50c/809335b2a5c63cd9?show_docid=809335b2a5c63cd9') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'George Thiruvathukal') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('George Thiruvathukal', '2010-11-21 21:55:17', '2010-11-21 21:55:17', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:17', 'Dear All: I am writing this e-mail on behalf of Dr. Honig, who is teaching the Microcomputer Design course next term. Given the significant number of students who were interested in hardware and hacking in general in this course, I would like to encourage you to sign up for this course. There are presently only 8 students enrolled, and in general a course needs 10 students to be assured of making the cut. I hope that a couple of students from the HPC course would be willing to enroll. Dr. Honig''s classes are usually project-oriented and fun, so I am assuming that this class will be manageable for most of you, now that you have survived the HPC experience. It is very important to me, personally, that this course not be cancelled. I am working hard to take the department in new directions that emphasize systems and engineering and have been working with William to grow this area for a few years now. So I hope you''ll respond to the call and find a way to add this class to your schedule for next term. George -- George K. Thiruvathukal, Ph.D. - http://www.thiruvathukal.com', '2010-11-21 21:55:17', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/ccaf035d4c0ce50c/809335b2a5c63cd9?show_docid=809335b2a5c63cd9', 1, 8)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.9ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('SteveJMarist', '2010-11-21 21:55:18', '2010-11-21 21:55:18', NULL)[0m
+  [4;35;1mFeed Load (0.3ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:18', 'Hey guys, hope everyone is enjoying their winter break so far. I had a question about something and thought this would be a nice place to get it out there. With the few weeks we have, I''ve been inspired by Steve and Ken to learn C; however, I''m having significant trouble figuring out how to use Visual Studio 2008 to compile C source code (msdn''s tutorial says something about using the "notepad" command, but VS isn''t recognizing the command). I also tried installing Dev- C++ but apparently it''s not compatible with a 64-bit OS. Any recommendations-- including text editors for C on Windows 64-bit platform-- you guys could give me would be greatly appreciated. Hope everyone has a great Xmas.-- Steve James', '2010-11-21 21:55:18', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matthew Wojtowicz') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:18', 'Notepad ++ is a good text edtior for windows.For C I would recommend using a gcc to compile your files.', '2010-11-21 21:55:18', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 6)[0m
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Joseph Kaylor', '2010-11-21 21:55:18', '2010-11-21 21:55:18', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:18', 'I''d recommend starting in Linux with GCC and make files. The environment isn''t quite as important when learning a new language.Here''s a good book:http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com>wrote:- Hide quoted text -- Show quoted text -> Notepad ++ is a good text edtior for windows.> For C I would recommend using a gcc to compile your files.>', '2010-11-21 21:55:18', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 10)[0m
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'luther07') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('luther07', '2010-11-21 21:55:18', '2010-11-21 21:55:18', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:18', 'Steve, I would recommend that you go to http://www.cygwin.com/ and click on "Install Cygwin now". "Cygwin is a Linux-like environment for Windows." "Note that Windows 7 and later will only be supported starting with the 1.7 version of Cygwin." Hopefully you don''t have Windows 7. From the setup program choose the compliers and text editors that you want. I believe "nano" is an easy text editor to use.Good luck, MarkOn Dec 14, 12:31 am, Joseph Kaylor <joekay...@gmail.com> wrote:- Hide quoted text -- Show quoted text -> I''d recommend starting in Linux with GCC and make files. The environment > isn''t quite as important when learning a new language.> Here''s a good book:http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...> On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com>wrote:> > Notepad ++ is a good text edtior for windows.> > For C I would recommend using a gcc to compile your files.> >', '2010-11-21 21:55:18', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 11)[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:18', 'It should be fine on Windows 7. I''ve been using it on my installation for a bit now.- Hide quoted text -- Show quoted text -On Mon, Dec 14, 2009 at 5:45 AM, luther07 <luthe...@gmail.com> wrote: > Steve, > I would recommend that you go to http://www.cygwin.com/ and click on > "Install Cygwin now". > "Cygwin is a Linux-like environment for Windows." > "Note that Windows 7 and later will only be supported starting with > the 1.7 version of Cygwin." > Hopefully you don''t have Windows 7. > From the setup program choose the compliers and text editors that you > want. I believe "nano" is an easy text editor to use.> Good luck, > Mark> On Dec 14, 12:31 am, Joseph Kaylor <joekay...@gmail.com> wrote: > > I''d recommend starting in Linux with GCC and make files. The environment > > isn''t quite as important when learning a new language.> > Here''s a good book: > http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...> > On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com > >wrote:> > > Notepad ++ is a good text edtior for windows.> > > For C I would recommend using a gcc to compile your files.> > >', '2010-11-21 21:55:18', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 10)[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:18', 'Thanks guys! I do actually have Windows 7, so hopefully Joe is right. I will probably install a few of these things you guys have mentioned just to check them out.On Dec 14, 7:02 am, Joseph Kaylor <joekay...@gmail.com> wrote:- Hide quoted text -- Show quoted text -> It should be fine on Windows 7. I''ve been using it on my installation for a > bit now.> On Mon, Dec 14, 2009 at 5:45 AM, luther07 <luthe...@gmail.com> wrote: > > Steve, > > I would recommend that you go tohttp://www.cygwin.com/and click on > > "Install Cygwin now". > > "Cygwin is a Linux-like environment for Windows." > > "Note that Windows 7 and later will only be supported starting with > > the 1.7 version of Cygwin." > > Hopefully you don''t have Windows 7. > > From the setup program choose the compliers and text editors that you > > want. I believe "nano" is an easy text editor to use.> > Good luck, > > Mark> > On Dec 14, 12:31 am, Joseph Kaylor <joekay...@gmail.com> wrote: > > > I''d recommend starting in Linux with GCC and make files. The environment > > > isn''t quite as important when learning a new language.> > > Here''s a good book: > >http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...> > > On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com > > >wrote:> > > > Notepad ++ is a good text edtior for windows.> > > > For C I would recommend using a gcc to compile your files.> > > >', '2010-11-21 21:55:18', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:18', 'Just an update: I sort of combined all of your suggestions for my C working environment. I''m using Notepad++ for my text editor (thanks Matthew) and Cygwin and a GCC compiler to compile and run my programs. Thanks again for your help guys! Happy Holidays.', '2010-11-21 21:55:18', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:18', 'Do you guys know of a way around running a cygwin-built app outside of cygwin? As I''m sure you know, you get the error "cygwin1.dll is missing" if you attempt to do so. I''m assuming it isn''t possible to run it outside of cygwin, but if there is a way around it it would be nice to know. On Dec 16, 6:45 pm, SteveJMarist <sjam...@luc.edu> wrote: - Hide quoted text -- Show quoted text -> Just an update: I sort of combined all of your suggestions for my C > working environment. I''m using Notepad++ for my text editor (thanks > Matthew) and Cygwin and a GCC compiler to compile and run my programs. > Thanks again for your help guys! Happy Holidays.', '2010-11-21 21:55:18', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/598238af540b2576/77f7129a363b3b0c?show_docid=77f7129a363b3b0c') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Purav Patel') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Purav Patel', '2010-11-21 21:55:18', '2010-11-21 21:55:18', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:18', 'Baseball HPC project is up with code and paper.http://code.google.com/p/baseballhpc/', '2010-11-21 21:55:18', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/598238af540b2576/77f7129a363b3b0c?show_docid=77f7129a363b3b0c', 1, 12)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/1f40d860f68ca519/db75bed2cac0b2ee?show_docid=db75bed2cac0b2ee') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Marty Heath') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Marty Heath', '2010-11-21 21:55:19', '2010-11-21 21:55:19', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:19', 'Here is the final project page for Pawel Grecholski and Marty Heathhttp://code.google.com/p/grecholski-heath-hpc-final/', '2010-11-21 21:55:19', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/1f40d860f68ca519/db75bed2cac0b2ee?show_docid=db75bed2cac0b2ee', 1, 13)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/53363e2425a4749f/167e727a8e302179?show_docid=167e727a8e302179') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Eric Sauer') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Eric Sauer', '2010-11-21 21:55:19', '2010-11-21 21:55:19', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.9ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:19', 'Here''s our project site. Documents page contains our presentation and (soon) our paper.http://sites.google.com/site/urbanityfactororg/', '2010-11-21 21:55:19', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/53363e2425a4749f/167e727a8e302179?show_docid=167e727a8e302179', 1, 14)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/9471932cddc36dbb/11a47b31e030e547?show_docid=11a47b31e030e547') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matt') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Matt', '2010-11-21 21:55:19', '2010-11-21 21:55:19', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:19', 'Saving the best for lasthttp://code.google.com/p/audio-representation/', '2010-11-21 21:55:19', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/9471932cddc36dbb/11a47b31e030e547?show_docid=11a47b31e030e547', 1, 15)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a828228d2f8e075d/ff94fac821d3868f?show_docid=ff94fac821d3868f') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:20', 'I just realized that I forgot to share the code for this project with everyone. I haven''t set up in google code yet because the state of the code isn''t very good, but I''ve created a site in Google Sites with the prototype version. You can find that site here:http://sites.google.com/site/msilgc/If this project ever progresses further than where it stands right now, I''ll keep this site up to date.-joe', '2010-11-21 21:55:20', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a828228d2f8e075d/ff94fac821d3868f?show_docid=ff94fac821d3868f', 1, 10)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/366e06b22c23d3b0/b75e3fc79331823e?show_docid=b75e3fc79331823e') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Steve H') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Steve H', '2010-11-21 21:55:20', '2010-11-21 21:55:20', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:55:20', 'Our code, report, and project in its entirety can be found athttp://sites.google.com/site/griopenclThanks to all for a great and interesting semester.', '2010-11-21 21:55:20', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/366e06b22c23d3b0/b75e3fc79331823e?show_docid=b75e3fc79331823e', 1, 16)[0m
+Redirected to http://localhost:3000/authors
+Completed in 18386ms (DB: 57) | 302 Found [http://localhost/retrieve_posts]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-21 13:55:21) [GET]
+  [4;35;1mAuthor Load (1.5ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 4) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 4) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 4) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 5) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 5) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 5) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 6) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 6) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 6) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 7) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 7) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 7) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 8) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 8) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 8) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 9) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 9) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 9) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 10) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 10) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 10) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 11) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 11) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 11) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 12) [0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 12) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 12) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 13) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 13) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 13) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 14) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 14) [0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 14) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 15) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 15) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 15) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 16) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 16) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 16) LIMIT 1[0m
+Completed in 114ms (View: 93, DB: 14) | 200 OK [http://localhost/authors]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 13:55:31) [GET]
+  Parameters: {"id"=>"luther07"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'luther07') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 11) [0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://localhost/authors/luther07]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (13.3ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "feed_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (11.1ms)[0m   [0;1mCREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (9.1ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "rating" decimal, "body" text, "created_at" datetime, "updated_at" datetime, "feed_id" integer, "url" varchar(255)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (7.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (11.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101120201104')[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101030073221')[0m
+  [4;35;1mSQL (8.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101030071752')[0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101120083737')[0m
+  [4;35;1mSQL (5.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101120083117')[0m
+  [4;36;1mSQL (5.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101120083453')[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('hebelken', '2010-11-21 21:58:13', '2010-11-21 21:58:13', NULL)[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('timmy', '2010-11-21 21:58:13', '2010-11-21 21:58:13', NULL)[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('barny Stinson', '2010-11-21 21:58:13', '2010-11-21 21:58:13', NULL)[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(5.0, '2010-11-21 21:58:13', 'yo tina, I''mma let you finish but jeffry has the...', '2010-11-21 21:58:13', NULL, NULL, 1)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(1.0, '2010-11-21 21:58:13', 'herp-derp dee deed derp', '2010-11-21 21:58:13', NULL, NULL, 1)[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(2.0, '2010-11-21 21:58:13', 'this is the name that is mine my post is baller and I look so fine', '2010-11-21 21:58:13', NULL, NULL, 3)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(5.0, '2010-11-21 21:58:13', 'this is alebeeb psors dort aohtem lariousemsasdgnm ipsotmsatmm', '2010-11-21 21:58:13', NULL, NULL, 2)[0m
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 13:58:18) [GET]
+  Parameters: {"id"=>"luther07"}
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'luther07') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #3 of app/views/authors/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @author.name %>
+4: </p>
+5: 
+6: <table>
+
+    app/views/authors/show.html.erb:3
+    app/controllers/authors_controller.rb:17:in `show'
+
+Rendered rescues/_trace (74.4ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-21 13:58:20) [GET]
+  [4;35;1mAuthor Load (0.6ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+Completed in 81ms (View: 69, DB: 2) | 200 OK [http://localhost/authors]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-11-21 13:58:24) [GET]
+Rendering home/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#retrieve_posts (for 127.0.0.1 at 2010-11-21 13:58:30) [POST]
+  Parameters: {"commit"=>"Analyze", "authenticity_token"=>"z5a9YoyIyC+C+E6wBAvxJlmlZk7mqN0qk6ZFmFDi/rc=", "password"=>"trustNeck22", "feed"=>"http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml", "email"=>"hebelken@gmail.com"}
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/d5a4337ee854cca5/43043ab402673495?show_docid=43043ab402673495') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.1ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.3ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Konstantin Läufer', '2010-11-21 21:58:31', '2010-11-21 21:58:31', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mFeed Create (0.1ms)[0m   [0mINSERT INTO "feeds" ("created_at", "updated_at", "url") VALUES('2010-11-21 21:58:31', '2010-11-21 21:58:31', 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:31', 'All:Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.)Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:  Rakesh Vidyadharan: Google DataStore API   Anil Saldhana: App Engine Deployment   http://www.cjug.org/Wiki.jsp?page=2010.05.18.downtown   Lewis Towers Ballroom, Beane Hall   820 N Michigan Ave, 13th floor   Future meetings are listed here:  http://www.cjug.org/Wiki.jsp?page=FutureMeetingsRSVP through the site.Regards,-- Konstantin Läuferhttp://home.laufer.cs.luc.edu/contact', '2010-11-21 21:58:31', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/d5a4337ee854cca5/43043ab402673495?show_docid=43043ab402673495', 1, 4)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/585dc1bb3d3bc506/02b76c97ee2e7f22?show_docid=02b76c97ee2e7f22') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Chris Bun') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Chris Bun', '2010-11-21 21:58:31', '2010-11-21 21:58:31', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:31', 'Very interesting article about newly discovered memristors.End of the Von Neumann architecture?http://highscalability.com/blog/2010/5/5/how-will-memristors-change-e...', '2010-11-21 21:58:31', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/585dc1bb3d3bc506/02b76c97ee2e7f22?show_docid=02b76c97ee2e7f22', 1, 5)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a688753b14441143/396015f5775149bb?show_docid=396015f5775149bb') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.4ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:32', 'All:Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.)Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:  Damodar Chetty   Concepts from the first three chapters of his book *Tomcat 6 Developer''s Guide*   http://www.cjug.org/Wiki.jsp?page=2010.04.20.downtown   Kasbeer Hall, 15th floor, Corboy Law Center   Loyola University of Chicago   25 E. Pearson St.Future meetings are listed here:  http://www.cjug.org/Wiki.jsp?page=FutureMeetingsRegards,-- Konstantin Läuferhttp://home.laufer.cs.luc.edu/contact-- Subscription settings: http://groups.google.com/group/luc-cs-hpc-f09/subscribe?hl=en', '2010-11-21 21:58:32', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a688753b14441143/396015f5775149bb?show_docid=396015f5775149bb', 1, 4)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4a8f11720b061505/092f90e9fdf20b7c?show_docid=092f90e9fdf20b7c') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:32', 'All: Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.) Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:   *Agile All The Way Down* and *Update On the Oracle/Sun Merger*   http://www.cjug.org/Wiki.jsp?page=2010.03.16.downtown   Corboy Law Center, Room 1401   Loyola University of Chicago   25 E. Pearson St. Future meetings are listed here:   http://www.cjug.org/Wiki.jsp?page=FutureMeetings Regards, -- Konstantin Läufer www.cs.luc.edu/laufer/contact', '2010-11-21 21:58:32', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4a8f11720b061505/092f90e9fdf20b7c?show_docid=092f90e9fdf20b7c', 1, 4)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/2267df1e5fd8464b/e9051a923c15f593?show_docid=e9051a923c15f593') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matthew Wojtowicz') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Matthew Wojtowicz', '2010-11-21 21:58:32', '2010-11-21 21:58:32', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:32', 'Well as I have been getting deeper into the Android library, I have begun to notice a few things.    - I am repeating a lot of code for common tasks(db, barcode, gps,... )    - Common place for instruction  is not found (I use google, blogs,    stackoverflow,...)    - Books talk technical not practical of if so not usefully("this is how    you take a picture", but I want to change the quality and size too)    - Android documentation is BAD!(There love of the complex design doesn''t    help) What I propose is a one-stop resource for all your android needs. This includes helper/fascade code, proper documentation, example code, and meaningful tutorials. Resources will be posted onto google''s hosting probability. I would like to have something presentable by April''s Chicago GTUG Here are some resources that I would like to begin with http://www.damonkohler.com/2009/02/android-recipes.html http://code.google.com/p/android-tools/  <http://code.google.com/p/android-tools/>No matter your level of expertise, If you are interested send me an email.  <http://code.google.com/p/android-tools/>  Matthew K Wojtowicz Loyola Research Assistant Android Developer Mail: matt...@gmail.com Phone: +1(773)413-0202 Skype: mwojtow0202', '2010-11-21 21:58:32', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/2267df1e5fd8464b/e9051a923c15f593?show_docid=e9051a923c15f593', 1, 6)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4b6ee633099e28ed/eaf32c71b0bc1b08?show_docid=eaf32c71b0bc1b08') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:33', 'All: Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.) *Please note that this presentation is NOT at Loyola as a one-time exception. * Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:   http://www.cjug.org/Wiki.jsp?page=2010.02.16.downtown   Dotomi, 168 North Clinton Street   Speaker: Yair Goldfinger, co-founder of Mirabilis, the company that developed ICQ Future meetings are listed here:   http://www.cjug.org/Wiki.jsp?page=FutureMeetings Regards, -- Konstantin Läufer www.cs.luc.edu/laufer/contact', '2010-11-21 21:58:33', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4b6ee633099e28ed/eaf32c71b0bc1b08?show_docid=eaf32c71b0bc1b08', 1, 4)[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/97b67dc2b435a3d4/abc7f03aef8f431f?show_docid=abc7f03aef8f431f') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Ivan Omar') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Ivan Omar', '2010-11-21 21:58:33', '2010-11-21 21:58:33', NULL)[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:33', 'IVAn', '2010-11-21 21:58:33', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/97b67dc2b435a3d4/abc7f03aef8f431f?show_docid=abc7f03aef8f431f', 1, 7)[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/ccaf035d4c0ce50c/809335b2a5c63cd9?show_docid=809335b2a5c63cd9') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'George Thiruvathukal') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.3ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('George Thiruvathukal', '2010-11-21 21:58:34', '2010-11-21 21:58:34', NULL)[0m
+  [4;35;1mFeed Load (0.3ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:34', 'Dear All: I am writing this e-mail on behalf of Dr. Honig, who is teaching the Microcomputer Design course next term. Given the significant number of students who were interested in hardware and hacking in general in this course, I would like to encourage you to sign up for this course. There are presently only 8 students enrolled, and in general a course needs 10 students to be assured of making the cut. I hope that a couple of students from the HPC course would be willing to enroll. Dr. Honig''s classes are usually project-oriented and fun, so I am assuming that this class will be manageable for most of you, now that you have survived the HPC experience. It is very important to me, personally, that this course not be cancelled. I am working hard to take the department in new directions that emphasize systems and engineering and have been working with William to grow this area for a few years now. So I hope you''ll respond to the call and find a way to add this class to your schedule for next term. George -- George K. Thiruvathukal, Ph.D. - http://www.thiruvathukal.com', '2010-11-21 21:58:34', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/ccaf035d4c0ce50c/809335b2a5c63cd9?show_docid=809335b2a5c63cd9', 1, 8)[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('SteveJMarist', '2010-11-21 21:58:34', '2010-11-21 21:58:34', NULL)[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:34', 'Hey guys, hope everyone is enjoying their winter break so far. I had a question about something and thought this would be a nice place to get it out there. With the few weeks we have, I''ve been inspired by Steve and Ken to learn C; however, I''m having significant trouble figuring out how to use Visual Studio 2008 to compile C source code (msdn''s tutorial says something about using the "notepad" command, but VS isn''t recognizing the command). I also tried installing Dev- C++ but apparently it''s not compatible with a 64-bit OS. Any recommendations-- including text editors for C on Windows 64-bit platform-- you guys could give me would be greatly appreciated. Hope everyone has a great Xmas.-- Steve James', '2010-11-21 21:58:34', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matthew Wojtowicz') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:34', 'Notepad ++ is a good text edtior for windows.For C I would recommend using a gcc to compile your files.', '2010-11-21 21:58:34', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 6)[0m
+  [4;35;1mAuthor Load (0.1ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Joseph Kaylor', '2010-11-21 21:58:34', '2010-11-21 21:58:34', NULL)[0m
+  [4;35;1mFeed Load (0.6ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:34', 'I''d recommend starting in Linux with GCC and make files. The environment isn''t quite as important when learning a new language.Here''s a good book:http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com>wrote:- Hide quoted text -- Show quoted text -> Notepad ++ is a good text edtior for windows.> For C I would recommend using a gcc to compile your files.>', '2010-11-21 21:58:34', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 10)[0m
+  [4;35;1mAuthor Load (0.1ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'luther07') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('luther07', '2010-11-21 21:58:34', '2010-11-21 21:58:34', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:34', 'Steve, I would recommend that you go to http://www.cygwin.com/ and click on "Install Cygwin now". "Cygwin is a Linux-like environment for Windows." "Note that Windows 7 and later will only be supported starting with the 1.7 version of Cygwin." Hopefully you don''t have Windows 7. From the setup program choose the compliers and text editors that you want. I believe "nano" is an easy text editor to use.Good luck, MarkOn Dec 14, 12:31 am, Joseph Kaylor <joekay...@gmail.com> wrote:- Hide quoted text -- Show quoted text -> I''d recommend starting in Linux with GCC and make files. The environment > isn''t quite as important when learning a new language.> Here''s a good book:http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...> On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com>wrote:> > Notepad ++ is a good text edtior for windows.> > For C I would recommend using a gcc to compile your files.> >', '2010-11-21 21:58:34', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 11)[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:34', 'It should be fine on Windows 7. I''ve been using it on my installation for a bit now.- Hide quoted text -- Show quoted text -On Mon, Dec 14, 2009 at 5:45 AM, luther07 <luthe...@gmail.com> wrote: > Steve, > I would recommend that you go to http://www.cygwin.com/ and click on > "Install Cygwin now". > "Cygwin is a Linux-like environment for Windows." > "Note that Windows 7 and later will only be supported starting with > the 1.7 version of Cygwin." > Hopefully you don''t have Windows 7. > From the setup program choose the compliers and text editors that you > want. I believe "nano" is an easy text editor to use.> Good luck, > Mark> On Dec 14, 12:31 am, Joseph Kaylor <joekay...@gmail.com> wrote: > > I''d recommend starting in Linux with GCC and make files. The environment > > isn''t quite as important when learning a new language.> > Here''s a good book: > http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...> > On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com > >wrote:> > > Notepad ++ is a good text edtior for windows.> > > For C I would recommend using a gcc to compile your files.> > >', '2010-11-21 21:58:34', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 10)[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:34', 'Thanks guys! I do actually have Windows 7, so hopefully Joe is right. I will probably install a few of these things you guys have mentioned just to check them out.On Dec 14, 7:02 am, Joseph Kaylor <joekay...@gmail.com> wrote:- Hide quoted text -- Show quoted text -> It should be fine on Windows 7. I''ve been using it on my installation for a > bit now.> On Mon, Dec 14, 2009 at 5:45 AM, luther07 <luthe...@gmail.com> wrote: > > Steve, > > I would recommend that you go tohttp://www.cygwin.com/and click on > > "Install Cygwin now". > > "Cygwin is a Linux-like environment for Windows." > > "Note that Windows 7 and later will only be supported starting with > > the 1.7 version of Cygwin." > > Hopefully you don''t have Windows 7. > > From the setup program choose the compliers and text editors that you > > want. I believe "nano" is an easy text editor to use.> > Good luck, > > Mark> > On Dec 14, 12:31 am, Joseph Kaylor <joekay...@gmail.com> wrote: > > > I''d recommend starting in Linux with GCC and make files. The environment > > > isn''t quite as important when learning a new language.> > > Here''s a good book: > >http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...> > > On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com > > >wrote:> > > > Notepad ++ is a good text edtior for windows.> > > > For C I would recommend using a gcc to compile your files.> > > >', '2010-11-21 21:58:34', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:34', 'Just an update: I sort of combined all of your suggestions for my C working environment. I''m using Notepad++ for my text editor (thanks Matthew) and Cygwin and a GCC compiler to compile and run my programs. Thanks again for your help guys! Happy Holidays.', '2010-11-21 21:58:34', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:34', 'Do you guys know of a way around running a cygwin-built app outside of cygwin? As I''m sure you know, you get the error "cygwin1.dll is missing" if you attempt to do so. I''m assuming it isn''t possible to run it outside of cygwin, but if there is a way around it it would be nice to know. On Dec 16, 6:45 pm, SteveJMarist <sjam...@luc.edu> wrote: - Hide quoted text -- Show quoted text -> Just an update: I sort of combined all of your suggestions for my C > working environment. I''m using Notepad++ for my text editor (thanks > Matthew) and Cygwin and a GCC compiler to compile and run my programs. > Thanks again for your help guys! Happy Holidays.', '2010-11-21 21:58:34', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/598238af540b2576/77f7129a363b3b0c?show_docid=77f7129a363b3b0c') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Purav Patel') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Purav Patel', '2010-11-21 21:58:35', '2010-11-21 21:58:35', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:35', 'Baseball HPC project is up with code and paper.http://code.google.com/p/baseballhpc/', '2010-11-21 21:58:35', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/598238af540b2576/77f7129a363b3b0c?show_docid=77f7129a363b3b0c', 1, 12)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/1f40d860f68ca519/db75bed2cac0b2ee?show_docid=db75bed2cac0b2ee') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Marty Heath') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Marty Heath', '2010-11-21 21:58:35', '2010-11-21 21:58:35', NULL)[0m
+  [4;35;1mFeed Load (0.3ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:35', 'Here is the final project page for Pawel Grecholski and Marty Heathhttp://code.google.com/p/grecholski-heath-hpc-final/', '2010-11-21 21:58:35', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/1f40d860f68ca519/db75bed2cac0b2ee?show_docid=db75bed2cac0b2ee', 1, 13)[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/53363e2425a4749f/167e727a8e302179?show_docid=167e727a8e302179') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Eric Sauer') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Eric Sauer', '2010-11-21 21:58:36', '2010-11-21 21:58:36', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:36', 'Here''s our project site. Documents page contains our presentation and (soon) our paper.http://sites.google.com/site/urbanityfactororg/', '2010-11-21 21:58:36', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/53363e2425a4749f/167e727a8e302179?show_docid=167e727a8e302179', 1, 14)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/9471932cddc36dbb/11a47b31e030e547?show_docid=11a47b31e030e547') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matt') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Matt', '2010-11-21 21:58:36', '2010-11-21 21:58:36', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:36', 'Saving the best for lasthttp://code.google.com/p/audio-representation/', '2010-11-21 21:58:36', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/9471932cddc36dbb/11a47b31e030e547?show_docid=11a47b31e030e547', 1, 15)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a828228d2f8e075d/ff94fac821d3868f?show_docid=ff94fac821d3868f') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.4ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:36', 'I just realized that I forgot to share the code for this project with everyone. I haven''t set up in google code yet because the state of the code isn''t very good, but I''ve created a site in Google Sites with the prototype version. You can find that site here:http://sites.google.com/site/msilgc/If this project ever progresses further than where it stands right now, I''ll keep this site up to date.-joe', '2010-11-21 21:58:36', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a828228d2f8e075d/ff94fac821d3868f?show_docid=ff94fac821d3868f', 1, 10)[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/366e06b22c23d3b0/b75e3fc79331823e?show_docid=b75e3fc79331823e') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Steve H') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Steve H', '2010-11-21 21:58:37', '2010-11-21 21:58:37', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 21:58:37', 'Our code, report, and project in its entirety can be found athttp://sites.google.com/site/griopenclThanks to all for a great and interesting semester.', '2010-11-21 21:58:37', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/366e06b22c23d3b0/b75e3fc79331823e?show_docid=b75e3fc79331823e', 1, 16)[0m
+Redirected to http://localhost:3000/authors
+Completed in 6854ms (DB: 18) | 302 Found [http://localhost/retrieve_posts]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-21 13:58:37) [GET]
+  [4;36;1mAuthor Load (1.3ms)[0m   [0;1mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 4) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 4) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 4) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 5) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 5) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 5) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 6) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 6) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 6) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 7) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 7) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 7) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 8) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 8) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 8) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 9) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 9) [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 9) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 10) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 10) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 10) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 11) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 11) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 11) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 12) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 12) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 12) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 13) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 13) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 13) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 14) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 14) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 14) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 15) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 15) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 15) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 16) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 16) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 16) LIMIT 1[0m
+Completed in 52ms (View: 35, DB: 10) | 200 OK [http://localhost/authors]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 13:58:53) [GET]
+  Parameters: {"id"=>"luther07"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'luther07') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 11) [0m
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/authors/luther07]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 14:03:58) [GET]
+  Parameters: {"id"=>"SteveJMarist"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 9) [0m
+Completed in 20ms (View: 8, DB: 1) | 200 OK [http://localhost/authors/SteveJMarist]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 14:04:35) [GET]
+  Parameters: {"id"=>"Purav Patel"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Purav Patel') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 12) [0m
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/authors/Purav%20Patel]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 14:04:43) [GET]
+  Parameters: {"id"=>"Matthew Wojtowicz"}
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matthew Wojtowicz') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 6) [0m
+Completed in 64ms (View: 56, DB: 1) | 200 OK [http://localhost/authors/Matthew%20Wojtowicz]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (11.4ms)[0m   [0;1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "feed_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mCREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (10.2ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "rating" decimal, "body" text, "created_at" datetime, "updated_at" datetime, "feed_id" integer, "url" varchar(255)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (6.1ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (10.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101120201104')[0m
+  [4;36;1mSQL (14.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101030073221')[0m
+  [4;35;1mSQL (8.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101030071752')[0m
+  [4;36;1mSQL (8.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101120083737')[0m
+  [4;35;1mSQL (6.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101120083117')[0m
+  [4;36;1mSQL (7.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101120083453')[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('hebelken', '2010-11-21 22:19:12', '2010-11-21 22:19:12', NULL)[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('timmy', '2010-11-21 22:19:12', '2010-11-21 22:19:12', NULL)[0m
+  [4;35;1mAuthor Create (0.2ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('barny Stinson', '2010-11-21 22:19:12', '2010-11-21 22:19:12', NULL)[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(5.0, '2010-11-21 22:19:12', 'yo tina, I''mma let you finish but jeffry has the...', '2010-11-21 22:19:12', NULL, NULL, 1)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(1.0, '2010-11-21 22:19:12', 'herp-derp dee deed derp', '2010-11-21 22:19:12', NULL, NULL, 1)[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(2.0, '2010-11-21 22:19:12', 'this is the name that is mine my post is baller and I look so fine', '2010-11-21 22:19:12', NULL, NULL, 3)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(5.0, '2010-11-21 22:19:12', 'this is alebeeb psors dort aohtem lariousemsasdgnm ipsotmsatmm', '2010-11-21 22:19:12', NULL, NULL, 2)[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-11-21 14:19:17) [GET]
+Rendering home/index
+Completed in 50ms (View: 48, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#retrieve_posts (for 127.0.0.1 at 2010-11-21 14:19:23) [POST]
+  Parameters: {"commit"=>"Analyze", "authenticity_token"=>"z5a9YoyIyC+C+E6wBAvxJlmlZk7mqN0qk6ZFmFDi/rc=", "password"=>"trustNeck22", "feed"=>"http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml", "email"=>"hebelken@gmail.com"}
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/d5a4337ee854cca5/43043ab402673495?show_docid=43043ab402673495') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.3ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Konstantin Läufer', '2010-11-21 22:19:25', '2010-11-21 22:19:25', NULL)[0m
+  [4;35;1mFeed Load (0.1ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mFeed Create (0.1ms)[0m   [0;1mINSERT INTO "feeds" ("created_at", "updated_at", "url") VALUES('2010-11-21 22:19:25', '2010-11-21 22:19:25', 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml')[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:25', 'All:Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.)Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:  Rakesh Vidyadharan: Google DataStore API   Anil Saldhana: App Engine Deployment   http://www.cjug.org/Wiki.jsp?page=2010.05.18.downtown   Lewis Towers Ballroom, Beane Hall   820 N Michigan Ave, 13th floor   Future meetings are listed here:  http://www.cjug.org/Wiki.jsp?page=FutureMeetingsRSVP through the site.Regards,-- Konstantin Läuferhttp://home.laufer.cs.luc.edu/contact', '2010-11-21 22:19:25', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/d5a4337ee854cca5/43043ab402673495?show_docid=43043ab402673495', 1, 4)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/585dc1bb3d3bc506/02b76c97ee2e7f22?show_docid=02b76c97ee2e7f22') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Chris Bun') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Chris Bun', '2010-11-21 22:19:25', '2010-11-21 22:19:25', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:25', 'Very interesting article about newly discovered memristors.End of the Von Neumann architecture?http://highscalability.com/blog/2010/5/5/how-will-memristors-change-e...', '2010-11-21 22:19:25', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/585dc1bb3d3bc506/02b76c97ee2e7f22?show_docid=02b76c97ee2e7f22', 1, 5)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a688753b14441143/396015f5775149bb?show_docid=396015f5775149bb') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:25', 'All:Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.)Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:  Damodar Chetty   Concepts from the first three chapters of his book *Tomcat 6 Developer''s Guide*   http://www.cjug.org/Wiki.jsp?page=2010.04.20.downtown   Kasbeer Hall, 15th floor, Corboy Law Center   Loyola University of Chicago   25 E. Pearson St.Future meetings are listed here:  http://www.cjug.org/Wiki.jsp?page=FutureMeetingsRegards,-- Konstantin Läuferhttp://home.laufer.cs.luc.edu/contact-- Subscription settings: http://groups.google.com/group/luc-cs-hpc-f09/subscribe?hl=en', '2010-11-21 22:19:25', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a688753b14441143/396015f5775149bb?show_docid=396015f5775149bb', 1, 4)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4a8f11720b061505/092f90e9fdf20b7c?show_docid=092f90e9fdf20b7c') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;35;1mFeed Load (0.3ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:26', 'All: Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.) Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:   *Agile All The Way Down* and *Update On the Oracle/Sun Merger*   http://www.cjug.org/Wiki.jsp?page=2010.03.16.downtown   Corboy Law Center, Room 1401   Loyola University of Chicago   25 E. Pearson St. Future meetings are listed here:   http://www.cjug.org/Wiki.jsp?page=FutureMeetings Regards, -- Konstantin Läufer www.cs.luc.edu/laufer/contact', '2010-11-21 22:19:26', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4a8f11720b061505/092f90e9fdf20b7c?show_docid=092f90e9fdf20b7c', 1, 4)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/2267df1e5fd8464b/e9051a923c15f593?show_docid=e9051a923c15f593') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matthew Wojtowicz') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Matthew Wojtowicz', '2010-11-21 22:19:26', '2010-11-21 22:19:26', NULL)[0m
+  [4;36;1mFeed Load (0.3ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:26', 'Well as I have been getting deeper into the Android library, I have begun to notice a few things.    - I am repeating a lot of code for common tasks(db, barcode, gps,... )    - Common place for instruction  is not found (I use google, blogs,    stackoverflow,...)    - Books talk technical not practical of if so not usefully("this is how    you take a picture", but I want to change the quality and size too)    - Android documentation is BAD!(There love of the complex design doesn''t    help) What I propose is a one-stop resource for all your android needs. This includes helper/fascade code, proper documentation, example code, and meaningful tutorials. Resources will be posted onto google''s hosting probability. I would like to have something presentable by April''s Chicago GTUG Here are some resources that I would like to begin with http://www.damonkohler.com/2009/02/android-recipes.html http://code.google.com/p/android-tools/  <http://code.google.com/p/android-tools/>No matter your level of expertise, If you are interested send me an email.  <http://code.google.com/p/android-tools/>  Matthew K Wojtowicz Loyola Research Assistant Android Developer Mail: matt...@gmail.com Phone: +1(773)413-0202 Skype: mwojtow0202', '2010-11-21 22:19:26', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/2267df1e5fd8464b/e9051a923c15f593?show_docid=e9051a923c15f593', 1, 6)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4b6ee633099e28ed/eaf32c71b0bc1b08?show_docid=eaf32c71b0bc1b08') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Konstantin Läufer') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:26', 'All: Everyone is invited to attend this and future CJUG presentations (held every third Tuesday of the month). Free admission for Loyola students, staff and faculty. (I am serving as the departmental liaison to CJUG.) *Please note that this presentation is NOT at Loyola as a one-time exception. * Networking (with soft drinks and pizza) starts at 6, and the presentation starts at 6:30. STUDENTS: the networking portion is usually sponsored by a company that''s actively recruiting. Details on this meeting are here:   http://www.cjug.org/Wiki.jsp?page=2010.02.16.downtown   Dotomi, 168 North Clinton Street   Speaker: Yair Goldfinger, co-founder of Mirabilis, the company that developed ICQ Future meetings are listed here:   http://www.cjug.org/Wiki.jsp?page=FutureMeetings Regards, -- Konstantin Läufer www.cs.luc.edu/laufer/contact', '2010-11-21 22:19:26', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/4b6ee633099e28ed/eaf32c71b0bc1b08?show_docid=eaf32c71b0bc1b08', 1, 4)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/97b67dc2b435a3d4/abc7f03aef8f431f?show_docid=abc7f03aef8f431f') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Ivan Omar') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Ivan Omar', '2010-11-21 22:19:27', '2010-11-21 22:19:27', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:27', 'IVAn', '2010-11-21 22:19:27', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/97b67dc2b435a3d4/abc7f03aef8f431f?show_docid=abc7f03aef8f431f', 1, 7)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/ccaf035d4c0ce50c/809335b2a5c63cd9?show_docid=809335b2a5c63cd9') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'George Thiruvathukal') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('George Thiruvathukal', '2010-11-21 22:19:27', '2010-11-21 22:19:27', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:27', 'Dear All: I am writing this e-mail on behalf of Dr. Honig, who is teaching the Microcomputer Design course next term. Given the significant number of students who were interested in hardware and hacking in general in this course, I would like to encourage you to sign up for this course. There are presently only 8 students enrolled, and in general a course needs 10 students to be assured of making the cut. I hope that a couple of students from the HPC course would be willing to enroll. Dr. Honig''s classes are usually project-oriented and fun, so I am assuming that this class will be manageable for most of you, now that you have survived the HPC experience. It is very important to me, personally, that this course not be cancelled. I am working hard to take the department in new directions that emphasize systems and engineering and have been working with William to grow this area for a few years now. So I hope you''ll respond to the call and find a way to add this class to your schedule for next term. George -- George K. Thiruvathukal, Ph.D. - http://www.thiruvathukal.com', '2010-11-21 22:19:27', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/ccaf035d4c0ce50c/809335b2a5c63cd9?show_docid=809335b2a5c63cd9', 1, 8)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('SteveJMarist', '2010-11-21 22:19:28', '2010-11-21 22:19:28', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:28', 'Hey guys, hope everyone is enjoying their winter break so far. I had a question about something and thought this would be a nice place to get it out there. With the few weeks we have, I''ve been inspired by Steve and Ken to learn C; however, I''m having significant trouble figuring out how to use Visual Studio 2008 to compile C source code (msdn''s tutorial says something about using the "notepad" command, but VS isn''t recognizing the command). I also tried installing Dev- C++ but apparently it''s not compatible with a 64-bit OS. Any recommendations-- including text editors for C on Windows 64-bit platform-- you guys could give me would be greatly appreciated. Hope everyone has a great Xmas.-- Steve James', '2010-11-21 22:19:28', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matthew Wojtowicz') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:28', 'Notepad ++ is a good text edtior for windows.For C I would recommend using a gcc to compile your files.', '2010-11-21 22:19:28', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 6)[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Joseph Kaylor', '2010-11-21 22:19:28', '2010-11-21 22:19:28', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:28', 'I''d recommend starting in Linux with GCC and make files. The environment isn''t quite as important when learning a new language.Here''s a good book:http://www.amazon.com/C-Programming-Language-Special/dp/0201700735/re...On Mon, Dec 14, 2009 at 12:07 AM, Matthew Wojtowicz <matt...@gmail.com>wrote:- Hide quoted text -- Show quoted text -> Notepad ++ is a good text edtior for windows.> For C I would recommend using a gcc to compile your files.>', '2010-11-21 22:19:28', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 10)[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'luther07') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('luther07', '2010-11-21 22:19:28', '2010-11-21 22:19:28', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:28', 'Steve, I would recommend that you go to http://www.cygwin.com/ and click on "Install Cygwin now". "Cygwin is a Linux-like environment for Windows." "Note that Windows 7 and later will only be supported starting with the 1.7 version of Cygwin." Hopefully you don''t have Windows 7. From the setup program choose the compliers and text editors that you want. I believe "nano" is an easy text editor to use.Good luck, Mark', '2010-11-21 22:19:28', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 11)[0m
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:28', 'It should be fine on Windows 7. I''ve been using it on my installation for a bit now.- Hide quoted text -- Show quoted text -On Mon, Dec 14, 2009 at 5:45 AM, luther07 <luthe...@gmail.com> wrote: > Steve, > I would recommend that you go to http://www.cygwin.com/ and click on > "Install Cygwin now". > "Cygwin is a Linux-like environment for Windows." > "Note that Windows 7 and later will only be supported starting with > the 1.7 version of Cygwin." > Hopefully you don''t have Windows 7. > From the setup program choose the compliers and text editors that you > want. I believe "nano" is an easy text editor to use.> Good luck, > Mark>', '2010-11-21 22:19:28', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 10)[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:28', 'Thanks guys! I do actually have Windows 7, so hopefully Joe is right. I will probably install a few of these things you guys have mentioned just to check them out.', '2010-11-21 22:19:28', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:28', 'Just an update: I sort of combined all of your suggestions for my C working environment. I''m using Notepad++ for my text editor (thanks Matthew) and Cygwin and a GCC compiler to compile and run my programs. Thanks again for your help guys! Happy Holidays.', '2010-11-21 22:19:28', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:28', 'Do you guys know of a way around running a cygwin-built app outside of cygwin? As I''m sure you know, you get the error "cygwin1.dll is missing" if you attempt to do so. I''m assuming it isn''t possible to run it outside of cygwin, but if there is a way around it it would be nice to know.', '2010-11-21 22:19:28', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/8512f14e01dcdbaf/1cc140bb840ea675?show_docid=1cc140bb840ea675', 1, 9)[0m
+  [4;36;1mPost Load (2.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/598238af540b2576/77f7129a363b3b0c?show_docid=77f7129a363b3b0c') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Purav Patel') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Purav Patel', '2010-11-21 22:19:28', '2010-11-21 22:19:28', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:28', 'Baseball HPC project is up with code and paper.http://code.google.com/p/baseballhpc/', '2010-11-21 22:19:28', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/598238af540b2576/77f7129a363b3b0c?show_docid=77f7129a363b3b0c', 1, 12)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/1f40d860f68ca519/db75bed2cac0b2ee?show_docid=db75bed2cac0b2ee') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Marty Heath') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Marty Heath', '2010-11-21 22:19:29', '2010-11-21 22:19:29', NULL)[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:29', 'Here is the final project page for Pawel Grecholski and Marty Heathhttp://code.google.com/p/grecholski-heath-hpc-final/', '2010-11-21 22:19:29', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/1f40d860f68ca519/db75bed2cac0b2ee?show_docid=db75bed2cac0b2ee', 1, 13)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/53363e2425a4749f/167e727a8e302179?show_docid=167e727a8e302179') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Eric Sauer') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.2ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Eric Sauer', '2010-11-21 22:19:29', '2010-11-21 22:19:29', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:29', 'Here''s our project site. Documents page contains our presentation and (soon) our paper.http://sites.google.com/site/urbanityfactororg/', '2010-11-21 22:19:29', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/53363e2425a4749f/167e727a8e302179?show_docid=167e727a8e302179', 1, 14)[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/9471932cddc36dbb/11a47b31e030e547?show_docid=11a47b31e030e547') LIMIT 1[0m
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'Matt') LIMIT 1[0m
+  [4;35;1mAuthor Create (0.1ms)[0m   [0mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Matt', '2010-11-21 22:19:29', '2010-11-21 22:19:29', NULL)[0m
+  [4;36;1mFeed Load (0.4ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:29', 'Saving the best for lasthttp://code.google.com/p/audio-representation/', '2010-11-21 22:19:29', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/9471932cddc36dbb/11a47b31e030e547?show_docid=11a47b31e030e547', 1, 15)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a828228d2f8e075d/ff94fac821d3868f?show_docid=ff94fac821d3868f') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.3ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Joseph Kaylor') LIMIT 1[0m
+  [4;36;1mFeed Load (0.2ms)[0m   [0;1mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:30', 'I just realized that I forgot to share the code for this project with everyone. I haven''t set up in google code yet because the state of the code isn''t very good, but I''ve created a site in Google Sites with the prototype version. You can find that site here:http://sites.google.com/site/msilgc/If this project ever progresses further than where it stands right now, I''ll keep this site up to date.-joe', '2010-11-21 22:19:30', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/a828228d2f8e075d/ff94fac821d3868f?show_docid=ff94fac821d3868f', 1, 10)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/366e06b22c23d3b0/b75e3fc79331823e?show_docid=b75e3fc79331823e') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.2ms)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."name" = 'Steve H') LIMIT 1[0m
+  [4;36;1mAuthor Create (0.1ms)[0m   [0;1mINSERT INTO "authors" ("name", "created_at", "updated_at", "feed_id") VALUES('Steve H', '2010-11-21 22:19:30', '2010-11-21 22:19:30', NULL)[0m
+  [4;35;1mFeed Load (0.2ms)[0m   [0mSELECT * FROM "feeds" WHERE ("feeds"."url" = 'http://groups.google.com/group/luc-cs-hpc-f09/feed/rss_v2_0_topics.xml') LIMIT 1[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("rating", "created_at", "body", "updated_at", "url", "feed_id", "author_id") VALUES(0.0, '2010-11-21 22:19:30', 'Our code, report, and project in its entirety can be found athttp://sites.google.com/site/griopenclThanks to all for a great and interesting semester.', '2010-11-21 22:19:30', 'http://groups.google.com/group/luc-cs-hpc-f09/browse_thread/thread/366e06b22c23d3b0/b75e3fc79331823e?show_docid=b75e3fc79331823e', 1, 16)[0m
+Redirected to http://localhost:3000/authors
+Completed in 6772ms (DB: 19) | 302 Found [http://localhost/retrieve_posts]
+
+
+Processing AuthorsController#index (for 127.0.0.1 at 2010-11-21 14:19:30) [GET]
+  [4;35;1mAuthor Load (1.4ms)[0m   [0mSELECT * FROM "authors" [0m
+Rendering template within layouts/authors
+Rendering authors/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 2) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 3) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 4) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 4) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 4) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 5) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 5) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 5) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 6) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 6) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 6) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 7) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 7) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 7) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 8) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 8) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 8) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 9) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 9) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 9) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 10) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 10) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 10) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 11) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 11) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 11) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 12) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 12) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 12) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 13) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 13) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 13) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 14) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 14) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 14) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 15) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 15) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".author_id = 15) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".author_id = 16) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT avg("posts".rating) AS avg_rating FROM "posts" WHERE ("posts".author_id = 16) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 16) LIMIT 1[0m
+Completed in 67ms (View: 51, DB: 10) | 200 OK [http://localhost/authors]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 14:19:38) [GET]
+  Parameters: {"id"=>"luther07"}
+  [4;36;1mAuthor Load (0.2ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'luther07') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 11) [0m
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://localhost/authors/luther07]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 14:19:42) [GET]
+  Parameters: {"id"=>"SteveJMarist"}
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'SteveJMarist') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 9) [0m
+Completed in 19ms (View: 9, DB: 1) | 200 OK [http://localhost/authors/SteveJMarist]
+
+
+Processing AuthorsController#show (for 127.0.0.1 at 2010-11-21 14:19:47) [GET]
+  Parameters: {"id"=>"George Thiruvathukal"}
+  [4;36;1mAuthor Load (0.3ms)[0m   [0;1mSELECT * FROM "authors" WHERE ("authors"."name" = 'George Thiruvathukal') LIMIT 1[0m
+Rendering template within layouts/authors
+Rendering authors/show
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".author_id = 8) [0m
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/authors/George%20Thiruvathukal]

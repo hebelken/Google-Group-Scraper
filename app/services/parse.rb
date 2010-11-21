@@ -44,11 +44,12 @@ class Parse
     
     @agent.get(link)
     numPosts = @agent.page.search(".author span").length
-    for i in (0..numPosts)
+    for i in (0..numPosts-1)
       post = Post.new
       post.author = Author.find_or_create_by_name(:name => @agent.page.search(".author span").map(&:text)[i])
 
-      post.body = @agent.page.search("#inbdy").map(&:text)[i].split(/On \b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Oct|Nov|Dec) [0-3]?[0-9], [0-9][0-9][0-9][0-9] [0-9]?[0-9]:[0-9][0-9] AM,.*/)[0].strip
+      post.body = @agent.page.search("#inbdy").map(&:text)[i].split(/On \b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Oct|Nov|Dec) [0-3]?[0-9], [0-9]?[0-9]?[0-9]?[0-9]? ?[0-9]?[0-9]:[0-9][0-9].*/)[0].strip
+
       post.rating = 0
       post.url = link
       post.feed = Feed.find_or_create_by_url(@feed_url)
