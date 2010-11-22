@@ -50,7 +50,7 @@ class Parse
 
       post.body = @agent.page.search("#inbdy").map(&:text)[i].split(/On \b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Oct|Nov|Dec) [0-3]?[0-9], [0-9]?[0-9]?[0-9]?[0-9]? ?[0-9]?[0-9]:[0-9][0-9].*/)[0].strip
 
-      post.rating = 0
+      post.rating = get_rating(i+1)
       post.url = link
       post.feed = Feed.find_or_create_by_url(@feed_url)
       post.save!
@@ -58,5 +58,18 @@ class Parse
     
     return post   
   end
+  
+  def get_rating(i)
+    maxRating = 4
+    rating = 0
+    currentAuthor = @agent.page.search("#top span").to_s().split(/<span class="fontsize2 author">.*/)[i]
+    return rating if currentAuthor.scan(/(clear_bg_yellow_star_on.gif|clear_bg_star_off.gif)/)[0].nil?
+    for starNum in (0..maxRating)
+      currentStar = currentAuthor.scan(/(clear_bg_yellow_star_on.gif|clear_bg_star_off.gif)/)[starNum][0]
+      rating = rating +1 if currentStar.equals("clear_bg_yellow_star_on.gif")
+    end
+    return rating    
+  end
+
 end
     
