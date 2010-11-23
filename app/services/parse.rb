@@ -23,6 +23,11 @@ class Parse
     form.Passwd = @password
     file = form.submit
 
+   # if file.filename.match(/.*.xml/).nil? == true
+      #THROW ERROR ON MAIN SCREEN
+      #return "Incorrect Password or RSS path"
+   # end
+
     file.save("feed.xml")
     doc = Nokogiri::XML(open("feed.xml"))
     items = doc.xpath("//link")
@@ -48,7 +53,8 @@ class Parse
       post = Post.new
       post.author = Author.find_or_create_by_name(:name => @agent.page.search(".author span").map(&:text)[i])
 
-      post.body = @agent.page.search("#inbdy").map(&:text)[i].split(/On \b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Oct|Nov|Dec) [0-3]?[0-9], [0-9]?[0-9]?[0-9]?[0-9]? ?[0-9]?[0-9]:[0-9][0-9].*/)[0].strip
+
+      post.body = format_body(@agent.page.search("#inbdy").map(&:text)[i])
 
       post.rating = get_rating(i+1)
       post.url = link
@@ -66,10 +72,22 @@ class Parse
     return rating if currentAuthor.scan(/(clear_bg_yellow_star_on.gif|clear_bg_star_off.gif)/)[0].nil?
     for starNum in (0..maxRating)
       currentStar = currentAuthor.scan(/(clear_bg_yellow_star_on.gif|clear_bg_star_off.gif)/)[starNum][0]
-      rating = rating +1 if currentStar.equals("clear_bg_yellow_star_on.gif")
+      rating = rating +1 if currentStar.eql?("clear_bg_yellow_star_on.gif")
     end
     return rating    
   end
+
+  def format_body(text)
+    result = ""
+    result = text.split(/>>>.*>>>.*/)[0]
+    result = result.split(/- Hide quoted text -- Show quoted text -.*/)[0]
+    result = result.split(/On \b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Oct|Nov|Dec) [0-9]?[0-9], [0-9]?[0-9]:[0-9][0-9].*/)[0]
+    result = result.split(/On [0-9]?[0-9]\/[0-9]?[0-9]\/[0-9]?[0-9] [0-9]?[0-9]:[0-9][0-9] (AM|PM|am|pm),.*/)[0]
+    result = result.split(/On \b(Mon|Tue|Wed|Thu|Fri|Sat|Sun), [0-9]?[0-9]\/[0-9]?[0-9]\/[0-9]?[0-9],.*/)[0]
+    result = result.split(/On \b(Mon|Tue|Wed|Thu|Fri|Sat|Sun)?,? ?\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Oct|Nov|Dec) [0-3]?[0-9], [0-9]?[0-9]?[0-9]?[0-9]? \b(at)? ?[0-9]?[0-9]:[0-9][0-9].*/)[0]
+    return result
+  end
+
 
 end
     
