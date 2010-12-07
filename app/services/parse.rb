@@ -14,6 +14,7 @@ class Parse
     @password = password
     @agent = Mechanize.new
     @agent.follow_meta_refresh = true
+    @feed_id = 0
   end
 
   def get_posts() 
@@ -23,10 +24,9 @@ class Parse
     form.Passwd = @password
     file = form.submit
 
-   # if file.filename.match(/.*.xml/).nil? == true
-      #THROW ERROR ON MAIN SCREEN
-      #return "Incorrect Password or RSS path"
-   # end
+   if file.filename.match(/.*.xml/).nil? == true
+     #ERROR
+   end
 
     file.save("feed.xml")
     doc = Nokogiri::XML(open("feed.xml"))
@@ -44,6 +44,10 @@ class Parse
     end
   end
 
+  def get_feed_id
+    return @feed_id
+  end
+
   private
   def parse_post(link)
     
@@ -58,7 +62,8 @@ class Parse
 
       post.rating = get_rating(i+1)
       post.url = link
-      post.feed = Feed.find_or_create_by_url(@feed_url)
+      post.feed_id = Feed.find_or_create_by_url(@feed_url).id
+      @feed_id = post.feed_id
       post.save!
     end
     

@@ -5,7 +5,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'retrieve_posts', :controller => 'Home', :action => 'retrieve_posts',  :conditions => { :method => :post }
 
-  # The priority is based upon order of creation: first created -> highest priority.
+  map.get_feed_author 'posts/:feed_id/:author_id', :controller => 'posts', :action => 'get_feed_author'
+
+  map.show 'posts/:feed_id', :controller => 'posts', :action => 'show'
+
+
+  # priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'

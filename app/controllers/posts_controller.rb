@@ -1,4 +1,15 @@
 class PostsController < ApplicationController
+ 
+  def get_feed_author
+    @posts = Post.find(:all, :conditions => { :feed_id => params[:feed_id], :author_id => params[:author_id]})  
+
+    respond_to do |format|
+      format.html # ged_feed_author.html.erb
+      format.xml  { render :xml => @posts }
+    end
+  end
+
+
   # GET /posts
   # GET /posts.xml
   def index
@@ -13,8 +24,9 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post = Post.find(params[:id])
 
+    @posts = Post.find(:all, :conditions => { :feed_id => params[:id]})
+    @post_authors = @posts.group_by{ |a| a.author} 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @post }

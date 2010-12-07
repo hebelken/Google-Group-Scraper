@@ -47,4 +47,5 @@ class AuthorsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:authors).first.posts.count
   end
 
+
 end

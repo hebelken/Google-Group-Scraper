@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Rating</th>
+    <th>Body</th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%=h post.author.name %></td> 
+    <td><%=h post.rating %></td>
+    <td><%=h post.body %></td>
+  </tr>
+<% end %>
+</table>
+
+

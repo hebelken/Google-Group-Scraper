@@ -10,7 +10,7 @@
 
 <% @authors.each do |author| %>
   <tr>
-    <td><%= link_to h (author.name), "/authors/#{author.name}" %></td>
+    <td><%= link_to h (author.name), "/authors/#{author.feed_id}/#{author.id}" %></td>
     <td><%= author.posts.count %></td>
     <td><%= author.average_rating %></td>
     <td><%= author.posts.first.body %></td>

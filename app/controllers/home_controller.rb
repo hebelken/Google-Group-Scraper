@@ -7,8 +7,9 @@ class HomeController < ApplicationController
   def retrieve_posts
     parser = Parse.new(params[:feed], params[:email], params[:password])
     parser.get_posts
-
-    redirect_to("/authors")
+    @feed_id = parser.get_feed_id
+    redirect_to("/posts/#{@feed_id}")
   end
+
 
 end

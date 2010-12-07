@@ -7,5 +7,7 @@ class Author < ActiveRecord::Base
     posts.average('rating')
   end
 
+  named_scope :by_feed_id, lambda { |feed_id|{:conditions => ["feed_id = ?", feed_id]} }
+
   
 end
