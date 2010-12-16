@@ -1,3 +1,6 @@
+<% if flash[:error] -%>
+  <p class='error'><%=h flash[:error] %></p>
+<% end -%>
 <%= form_tag ('/retrieve_posts') %>
 
   <table>

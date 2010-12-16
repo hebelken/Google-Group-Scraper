@@ -4,6 +4,8 @@ require 'rubygems'
 require 'mechanize'
 require 'nokogiri'
 require 'open-uri'
+require 'uri'
+
 
 class Parse 
   
@@ -17,18 +19,23 @@ class Parse
     @feed_id = 0
   end
 
-  def get_posts() 
-    @agent.get("https://www.google.com/accounts/ServiceLogin?passive=true&hl=en&service=groups2&continue=#{@feed_url}")  
+  def valid_url
+    @agent.get("https://www.google.com/accounts/ServiceLogin?passive=true&hl=en&service=groups2&continue=#{@feed_url}") rescue false
+  end
+
+
+  def auth()
     form = @agent.page.forms.first
     form.Email = @username
     form.Passwd = @password
     file = form.submit
-
-   if file.filename.match(/.*.xml/).nil? == true
-     #ERROR
-   end
-
+    result = file.filename.match(/.*.xml/).nil?
     file.save("feed.xml")
+    return result
+  end
+    
+
+  def get_posts() 
     doc = Nokogiri::XML(open("feed.xml"))
     items = doc.xpath("//link")
     items.shift
@@ -38,7 +45,7 @@ class Parse
     end
 
     links.each do |item|
-      if Post.find_by_url(item).nil? == true
+      if Post.find_by_url(item).nil?
         parse_post(item)
       end
     end
